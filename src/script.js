@@ -17,7 +17,7 @@ function getJSON(response) {
 
 let headlineNews = "https://newsapi.org/v2/top-headlines?country=us&apiKey=61f183b6efeb48cdab07b405197cd533";
 let flashNews = "https://newsapi.org/v2/everything?q=health&apiKey=61f183b6efeb48cdab07b405197cd533";
-let topNews = "https://newsapi.org/v2/top-headlines?sources=al-jazeera-english&apiKey=61f183b6efeb48cdab07b405197cd533";
+let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
 $(".btn-loadMore").addEventListener("click", function(){
@@ -78,7 +78,7 @@ fetch(flashNews)
         console.log(data);
         for(let i = 0; i < 6; i++){
             $(`.cell${i+1}`).innerHTML = `<img src="${data.articles[i].urlToImage}">`;
-            $(`.cellp${i+1}`).innerHTML = `<p>Date: ${data.articles[i].publishedAt.split("T")[0]} <br><br>Title: ${data.articles[i].title}<br><br>Author: ${data.articles[i].author}</p>`;
+            $(`.cellp${i+1}`).innerHTML = `<p><strong>Date: ${data.articles[i].publishedAt.split("T")[0]} <br><br>Title: ${data.articles[i].title}<br><br>Author: ${data.articles[i].author}</strong></p>`;
         }
     })
     .catch(function (err) {
