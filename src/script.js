@@ -15,17 +15,16 @@ function getJSON(response) {
     return response.json();
 }
 
-let counter = 0;
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=us&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=volcano&apiKey=61f183b6efeb48cdab07b405197cd533";
-let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=61f183b6efeb48cdab07b405197cd533";
+let counter = 0, loadMoreCounter = 7, output = "";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=si&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=artifact&apiKey=61f183b6efeb48cdab07b405197cd533";
+let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 function getHeadlines(data){
     let i = 0, br = 0;
     while (br < 9){
         if (data.articles[i].title !== null &&
             data.articles[i].urlToImage !== null){
-                console.log(data.articles[i].title);
     $(`.headline${br+1}`).innerText = `${data.articles[i].title}`;
     $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -54,10 +53,22 @@ function getFlashNews(data){
 }
 
 function getTopNews(data){
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < data.articles.length; i++){
+        let x = document.createElement("div");
+        let y = document.createElement("div");
+        x.className = `cell${i+1}`;
+        y.className = `cellp${i+1}`;
+        $(".topRatedContainer").appendChild(x);
+        $(".topRatedContainer").appendChild(y);
         $(`.cell${i+1}`).innerHTML = `<img src="${data.articles[i].urlToImage}">`;
         $(`.cellp${i+1}`).innerHTML = `<p><strong>Date: ${data.articles[i].publishedAt.split("T")[0]} <br><br>Title: ${data.articles[i].title}<br><br>Author: ${data.articles[i].author}</strong></p>`;
     }
+
+    for (let i = 7; i <= data.articles.length; i++){
+        $(`.cell${i}`).style.display = "none";
+        $(`.cellp${i}`).style.display = "none";
+    }
+
 }
 
 function rightArrows(){
@@ -105,13 +116,11 @@ function leftArrows(){
 
 
 $(".btn-loadMore").addEventListener("click", function(){
-    let output = $(".topRatedContainer").innerHTML + `<div class="cell"><img src="images/slider2.jpg"></div>
-    <div class="cell1"><p>Date: 23.11.2018<br><br>Title: Fuel is expensive<br><br>Description: Obilne padavine u Radanovićima, preplavljeni putevi, dvorišta...</p></div>
-    <div class="cell"><img src="images/slider1.jpg"></div>
-    <div class="cell1"><p>Date: 23.11.2018<br><br>Title: Fuel is expensive<br><br>Description: Obilne padavine u Radanovićima, preplavljeni putevi, dvorišta...</p></div>
-    `;
-
-    $(".topRatedContainer").innerHTML = output;
+    for (let i = 0; i < 3; i++){
+        $(`.cell${loadMoreCounter+i}`).style.display = "";
+        $(`.cellp${loadMoreCounter+i}`).style.display = "";
+    }
+    loadMoreCounter += 3;
 })
 
  fetch(headlineNews)
@@ -161,3 +170,11 @@ $(".arrows").addEventListener("click", function(event){
         leftArrows();
     }
 })
+
+setInterval(function(){
+    counter++;
+        if (counter === 3){
+            counter = 0;
+        }
+        rightArrows();
+}, 5000);

@@ -127,32 +127,9 @@ a{
     color: darkblue;
 }
 
-.slider1 {
-  background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
-    ),
-    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/shoes.jpg);
 
-    background-size: 100% 100%;
-}
 
-.slider2 {
-    background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ), url("images/slider2.jpg");
-    background-size: 100% 100%;
-}
-
-.slider3 {
-    background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ), url("images/slider3.jpg");
+[class^=slider] {
     background-size: 100% 100%;
 }
 
@@ -260,17 +237,19 @@ i {
 }
 
 .displaySlider [class^=slider] p[class^="headline"]{
-    font-weight: 600;
+    font-weight: bolder;
     text-align: center;
     font-size: 19px;
     opacity: 1;
     color: whitesmoke;
+    transition-timing-function: ease-in;
 }
 
 .displaySlider [class^=slider] p[class^="text"] {
     margin-left: 5px;
     font-size: 13px;
     color: yellow;
+    font-weight: bold;
 }
 
 [class^=flash] {
