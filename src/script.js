@@ -16,8 +16,8 @@ function getJSON(response) {
 }
 
 let counter = 0, loadMoreCounter = 7, output = "";
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=si&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=artifact&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=tr&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=apple&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 function getHeadlines(data){

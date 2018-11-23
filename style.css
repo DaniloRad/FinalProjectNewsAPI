@@ -256,3 +256,103 @@ i {
     font-size: 10px;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 5%;
+    top: 5%;
+    bottom: 5%;
+    right: 5%;
+    background-color: black;
+    color: whitesmoke;
+    transition: opacity 400ms ease-in;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.modalTitle {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modalContainer {   
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+}
+
+.modalImage {
+    text-align: center;
+}
+
+.modalImg {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 300px;
+}
+
+.modalAuthor {
+    display: block;
+    text-align: center;
+}
+
+.modalDate {
+    margin-left: 50px;
+}
+
+.modalDescription {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#one {
+    transform:scaleY(.01) scaleX(0);
+    animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal {
+        transform:scale(0);
+        animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+}
+
+@keyframes unfoldIn {
+    0% {
+      transform:scaleY(.005) scaleX(0);
+    }
+    50% {
+      transform:scaleY(.005) scaleX(1);
+    }
+    100% {
+      transform:scaleY(1) scaleX(1);
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform:scale(0);
+    }
+    100% {
+      transform:scale(1);
+    }
+  }
+
