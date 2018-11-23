@@ -116,18 +116,16 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 10px;
     
 }
 
 .displaySlider div{
-    height: 250px;
-    width: 250px;
+    height: 230px;
+    width: 230px;
     border: solid 2px royalblue;
     color: darkblue;
 }
-
-
 
 [class^=slider] {
     background-size: 100% 100%;
@@ -247,7 +245,7 @@ i {
 
 .displaySlider [class^=slider] p[class^="text"] {
     margin-left: 5px;
-    font-size: 13px;
+    font-size: 12px;
     color: yellow;
     font-weight: bold;
 }
@@ -267,7 +265,6 @@ i {
     right: 5%;
     background-color: black;
     color: whitesmoke;
-    transition: opacity 400ms ease-in;
 }
 
 .close {
@@ -326,14 +323,25 @@ i {
     margin-top: 20px;
 }
 
-#one {
+#in {
     transform:scaleY(.01) scaleX(0);
     animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-      .modal {
+}
+
+.modal-in {
         transform:scale(0);
         animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-    }
 }
+
+#out {
+    transform:scale(1);
+    animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modal-out {
+        animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
 
 @keyframes unfoldIn {
     0% {
@@ -347,12 +355,32 @@ i {
     }
   }
 
-  @keyframes zoomIn {
+@keyframes zoomIn {
     0% {
       transform:scale(0);
     }
     100% {
       transform:scale(1);
     }
-  }
+}
 
+@keyframes unfoldOut {
+    0% {
+      transform:scaleY(1) scaleX(1);
+    }
+    50% {
+      transform:scaleY(.005) scaleX(1);
+    }
+    100% {
+      transform:scaleY(.005) scaleX(0);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+      transform:scale(1);
+    }
+    100% {
+      transform:scale(0);
+    }
+}

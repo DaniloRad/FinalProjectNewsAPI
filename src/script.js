@@ -16,7 +16,7 @@ function getJSON(response) {
 }
 
 let counter = 0, loadMoreCounter = 7, output = "";
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=tr&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 let flashNews = "https://newsapi.org/v2/everything?q=apple&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
@@ -30,7 +30,7 @@ function getHeadlines(data){
         rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.3)
       ), url(${data.articles[i].urlToImage})`;
-    $(`.textHeadline${br+1}`).innerHTML = `${data.articles[i].description}<a>..read more</a>`;
+    $(`.textHeadline${br+1}`).innerHTML = `${data.articles[i].description}<a class="a a${br+1}">..read more</a>`;
     br++;
     i++;
     }
@@ -123,7 +123,7 @@ $(".btn-loadMore").addEventListener("click", function(){
     loadMoreCounter += 3;
 })
 
- fetch(headlineNews)
+fetch(headlineNews)
     .then(checkStatus)
     .then(getJSON)
     .then(function (data) {
@@ -143,7 +143,7 @@ fetch(flashNews)
         console.log("Error ", err);
     })
 
-    fetch(topNews)
+fetch(topNews)
     .then(checkStatus)
     .then(getJSON)
     .then(function (data) {
@@ -151,7 +151,7 @@ fetch(flashNews)
     })
     .catch(function (err) {
         console.log("Error ", err);
-    })
+})
 
 
 $(".arrows").addEventListener("click", function(event){
@@ -178,3 +178,24 @@ setInterval(function(){
         }
         rightArrows();
 }, 5000);
+
+$(".displaySlider").addEventListener("click", function(event){
+    console.log(event.target);
+    if (event.target.classList.contains("a")){
+        $(".modal").classList.remove("modal-out");
+        $(".modal").classList.add("modal-in");
+        $(".modal").id = "in";
+        $(".modal").style.display = "block";
+    }
+    
+})
+
+$(".close").addEventListener("click", function(){
+    $(".modal").classList.remove("modal-in");
+        $(".modal").classList.add("modal-out");
+        $(".modal").id = "out";
+    let modalOut = setInterval(function(){
+        $(".modal").style.display = "none";
+        }, 1000);
+    clearInterval(modalOut);
+})
