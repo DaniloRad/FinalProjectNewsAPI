@@ -14,20 +14,23 @@ function checkStatus(response) {
 function getJSON(response) {
     return response.json();
 }
-let headlineTitle = [], headlineImg = [], headlineAuthor = [], headlineContent = [], headlineDate = [], headlineLink = [];
+
+const headline = [], topRatedNews = [];
 let counter = 0, loadMoreCounter = 7, output = "";
 let headlineNews = "https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 let flashNews = "https://newsapi.org/v2/everything?q=apple&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
-function getHeadlinesData(data,i){
-    headlineTitle.push(data.articles[i].title);
-    headlineImg.push(data.articles[i].urlToImage);
-    headlineAuthor.push(data.articles[i].author);
-    headlineContent.push(data.articles[i].content);
-    headlineDate.push(data.articles[i].publishedAt.split("T")[0]);
-    headlineLink.push(data.articles[i].url);
+function getHeadlinesData(data,i,br){
+    headline[br] = {
+    title: data.articles[i].title,
+    img: data.articles[i].urlToImage,
+    author: data.articles[i].author,
+    content: data.articles[i].content,
+    date: data.articles[i].publishedAt.split("T")[0] ,
+    link: data.articles[i].url
+    }
 }
 
 function getHeadlines(data){
@@ -35,7 +38,7 @@ function getHeadlines(data){
     while (br < 9){
         if (data.articles[i].title !== null &&
             data.articles[i].urlToImage !== null){
-                getHeadlinesData(data,i);
+                getHeadlinesData(data,i,br);
     $(`.headline${br+1}`).innerText = `${data.articles[i].title}`;
     $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -63,15 +66,27 @@ function getFlashNews(data){
     }
 }
 
+function getTopNewsData(data,i){
+        topRatedNews[i] = {
+        title: data.articles[i].title,
+        img: data.articles[i].urlToImage,
+        author: data.articles[i].author,
+        content: data.articles[i].content,
+        date: data.articles[i].publishedAt.split("T")[0] ,
+        link: data.articles[i].url
+        }
+}
+
 function getTopNews(data){
     for(let i = 0; i < data.articles.length; i++){
+        getTopNewsData(data,i);
         let x = document.createElement("div");
         let y = document.createElement("div");
         x.className = `cell${i+1}`;
         y.className = `cellp${i+1}`;
         $(".topRatedContainer").appendChild(x);
         $(".topRatedContainer").appendChild(y);
-        $(`.cell${i+1}`).innerHTML = `<img src="${data.articles[i].urlToImage}">`;
+        $(`.cell${i+1}`).innerHTML = `<img class="img img${i+1}" src="${data.articles[i].urlToImage}">`;
         $(`.cellp${i+1}`).innerHTML = `<p><strong>Date: ${data.articles[i].publishedAt.split("T")[0]} <br><br>Title: ${data.articles[i].title}<br><br>Author: ${data.articles[i].author}</strong></p>`;
     }
 
@@ -195,29 +210,41 @@ setInterval(function(){
         rightArrows();
 }, 5000);
 
+
+function getModalData(array,x){
+    $(".modal").classList.remove("modal-out");
+        $(".modal").classList.add("modal-in");
+        $(".modal").id = "in";
+        $(".modal").style.display = "block";
+        $(".modalTitle").innerText = array[x-1].title;
+        if(array[x-1].author !== null && headline[x-1].author !== ""){
+        $(".modalAuthor").innerHTML = `Author: ${array[x-1].author}<span class="modalDate">Date: ${array[x-1].date}</span>`;
+        }
+        else{
+        $(".modalAuthor").innerHTML = `Author: Unknown<span class="modalDate">Date: ${array[x-1].date}</span>`;
+        }
+        $(".modalImg").src = `${array[x-1].img}`;
+        $(".modalContent").innerText = array[x-1].content.split("[")[0];
+        $(".modalLink").innerHTML = `<a href="${array[x-1].link}" target="_blank">Click Here for More</a>`;
+}
+
 $(".displaySlider").addEventListener("click", function(event){
     if (event.target.classList.contains("a")){
         console.log(typeof(event.target.parentNode.className.slice(-1)));
         let x = parseInt(event.target.parentNode.className.slice(-1));
-        $(".modal").classList.remove("modal-out");
-        $(".modal").classList.add("modal-in");
-        $(".modal").id = "in";
-        $(".modal").style.display = "block";
-        $(".modalTitle").innerText = headlineTitle[x-1];
-        if(headlineAuthor[x-1] !== null && headlineAuthor[x-1] !== ""){
-        $(".modalAuthor").innerHTML = `Author: ${headlineAuthor[x-1]}<span class="modalDate">Date: ${headlineDate[x-1]}</span>`;
-        }
-        else{
-        $(".modalAuthor").innerHTML = `Author: Unknown<span class="modalDate">Date: ${headlineDate[x-1]}</span>`;
-        }
-        $(".modalImg").src = `${headlineImg[x-1]}`;
-        $(".modalContent").innerText = headlineContent[x-1].split("[")[0];
-         $(".modalLink").innerHTML = `<a href="${headlineLink[x-1]}" target="_blank">Click Here for More</a>`;
-        
+        getModalData(headline,x);
     }
 })
 
-$(".close").addEventListener("click", function(){
+$(".topRatedContainer").addEventListener("click", function(event){
+    if (event.target.classList.contains("img")){
+        console.log(typeof(event.target.parentNode.className.slice(-1)));
+        let x = parseInt(event.target.parentNode.className.slice(-1));
+        getModalData(topRatedNews,x);
+    }
+})
+
+function closeModal(){
     $(".modal").classList.remove("modal-in");
         $(".modal").classList.add("modal-out");
         $(".modal").id = "out";
@@ -225,4 +252,14 @@ $(".close").addEventListener("click", function(){
         $(".modal").style.display = "none";
         }, 1000);
     clearInterval(modalOut);
+}
+
+$(".close").addEventListener("click", function(){
+    closeModal();
+})
+
+document.addEventListener("keydown", function(event){
+    if (event.keyCode === 27){
+        closeModal();
+    }
 })

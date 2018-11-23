@@ -205,6 +205,7 @@ i {
     width: 140px;
     height: 100px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .topRatedContainer {
