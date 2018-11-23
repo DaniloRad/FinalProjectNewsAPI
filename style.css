@@ -318,9 +318,14 @@ i {
     margin-left: 50px;
 }
 
-.modalDescription {
+.modalContent {
     text-align: center;
     margin-top: 20px;
+}
+
+.modalLink {
+    margin-top: 10px;
+    text-align: center;
 }
 
 #in {

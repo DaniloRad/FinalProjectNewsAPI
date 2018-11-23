@@ -14,17 +14,28 @@ function checkStatus(response) {
 function getJSON(response) {
     return response.json();
 }
-
+let headlineTitle = [], headlineImg = [], headlineAuthor = [], headlineContent = [], headlineDate = [], headlineLink = [];
 let counter = 0, loadMoreCounter = 7, output = "";
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 let flashNews = "https://newsapi.org/v2/everything?q=apple&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+
+
+function getHeadlinesData(data,i){
+    headlineTitle.push(data.articles[i].title);
+    headlineImg.push(data.articles[i].urlToImage);
+    headlineAuthor.push(data.articles[i].author);
+    headlineContent.push(data.articles[i].content);
+    headlineDate.push(data.articles[i].publishedAt.split("T")[0]);
+    headlineLink.push(data.articles[i].url);
+}
 
 function getHeadlines(data){
     let i = 0, br = 0;
     while (br < 9){
         if (data.articles[i].title !== null &&
             data.articles[i].urlToImage !== null){
+                getHeadlinesData(data,i);
     $(`.headline${br+1}`).innerText = `${data.articles[i].title}`;
     $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -128,10 +139,12 @@ fetch(headlineNews)
     .then(getJSON)
     .then(function (data) {
         getHeadlines(data);
+        console.log(data.articles);
     })
     .catch(function (err) {
         console.log("Error ", err);
     })
+
 
 fetch(flashNews)
     .then(checkStatus)
@@ -142,6 +155,9 @@ fetch(flashNews)
     .catch(function (err) {
         console.log("Error ", err);
     })
+
+
+
 
 fetch(topNews)
     .then(checkStatus)
@@ -180,14 +196,25 @@ setInterval(function(){
 }, 5000);
 
 $(".displaySlider").addEventListener("click", function(event){
-    console.log(event.target);
     if (event.target.classList.contains("a")){
+        console.log(typeof(event.target.parentNode.className.slice(-1)));
+        let x = parseInt(event.target.parentNode.className.slice(-1));
         $(".modal").classList.remove("modal-out");
         $(".modal").classList.add("modal-in");
         $(".modal").id = "in";
         $(".modal").style.display = "block";
+        $(".modalTitle").innerText = headlineTitle[x-1];
+        if(headlineAuthor[x-1] !== null && headlineAuthor[x-1] !== ""){
+        $(".modalAuthor").innerHTML = `Author: ${headlineAuthor[x-1]}<span class="modalDate">Date: ${headlineDate[x-1]}</span>`;
+        }
+        else{
+        $(".modalAuthor").innerHTML = `Author: Unknown<span class="modalDate">Date: ${headlineDate[x-1]}</span>`;
+        }
+        $(".modalImg").src = `${headlineImg[x-1]}`;
+        $(".modalContent").innerText = headlineContent[x-1].split("[")[0];
+         $(".modalLink").innerHTML = `<a href="${headlineLink[x-1]}" target="_blank">Click Here for More</a>`;
+        
     }
-    
 })
 
 $(".close").addEventListener("click", function(){
