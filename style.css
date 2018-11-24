@@ -10,7 +10,7 @@ header{
     grid-template-columns: 1fr 10fr 1fr;
     padding-bottom: 2px;
     position: fixed;
-    width: 70%;
+    width: 1063px;
     top: 0px;
     border-bottom: 1px solid burlywood;
     background: darkgrey;
@@ -21,7 +21,7 @@ footer{
     height: 30px;
     position: fixed;
     bottom: 0px;
-    width: 70%;
+    width: 1063px;
     border-top: 1px solid burlywood;
     background: darkgray;
 }
@@ -92,15 +92,15 @@ a{
 
 .container {
     display: grid;
-    width: 100%;
+    width: 1063px;
     grid-gap: 10px;
     grid-template-areas: 
-    "slider slider slider best best"
-    "slider slider slider best best"
-    "slider slider slider fbFeed fbFeed"
-    "topRated topRated topRated fbFeed fbFeed"
-    "topRated topRated topRated fbFeed fbFeed"
-    "topRated topRated topRated fbFeed fbFeed";
+    "slider slider slider best"
+    "slider slider slider best"
+    "slider slider slider fbFeed"
+    "topRated topRated topRated fbFeed"
+    "topRated topRated topRated fbFeed"
+    "topRated topRated topRated fbFeed";
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -307,7 +307,7 @@ i {
     width: 100%;
     max-width: 600px;
     height: auto;
-    max-height: 300px;
+    max-height: 350px;
 }
 
 .modalAuthor {
@@ -405,3 +405,57 @@ i {
         z-index:1;
         background: transparent;
 }
+
+@media (max-width: 600px) {
+    body{
+        width: 95%;
+    }
+
+    .fbFeed, .best {
+        display: none;
+    }
+    .container {
+        display: grid;
+        width: 100%;
+        grid-gap: 10px;
+        grid-template-areas: 
+        "slider slider"
+        "topRated topRated";
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .topRatedContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+    .topRatedContainer img {
+        width: 140px;
+        height: 80px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    [class^=cellp] p {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 10px;
+    }
+
+    footer {
+        width: 95%;
+    }
+
+    header {
+        width: 95%;
+    }
+
+    .displaySlider div{
+        height: 250px;
+        width: 250px;
+        border: solid 2px royalblue;
+        color: darkblue;
+    }
+} 
