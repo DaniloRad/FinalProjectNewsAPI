@@ -202,6 +202,37 @@ $(".arrows").addEventListener("click", function(event){
     }
 })
 
+function leftRight(){
+    document.onkeydown = function(e){
+      if (e.key === "ArrowLeft"){
+        counter--;
+        if (counter === -1) {
+            counter = 2;
+        }
+        leftArrows();
+      }
+      else if (e.key === "ArrowRight"){
+        counter++;
+        if (counter === 3){
+            counter = 0;
+        }
+        rightArrows();
+      }
+    }
+  }
+
+  function doNothing(){
+    document.onkeydown = function(e){
+      if (e.key === "ArrowLeft"){
+      }
+      else if (e.key === "ArrowRight"){
+      }
+    }
+  }
+
+  $(".slider").addEventListener("mouseover", leftRight);
+  $(".slider").addEventListener("mouseout", doNothing);
+
 setInterval(function(){
     counter++;
         if (counter === 3){
@@ -265,3 +296,11 @@ document.addEventListener("keydown", function(event){
         closeModal();
     }
 })
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));

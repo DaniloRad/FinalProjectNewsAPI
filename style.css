@@ -146,9 +146,8 @@ a{
 }
 
 .fbFeed {
-    border: solid 2px olive;
     grid-area: fbFeed;
-    height: 150px;
+    height: auto;
 }
 
 .container a:hover{
@@ -266,7 +265,7 @@ i {
     right: 5%;
     background-color: black;
     color: whitesmoke;
-    box-shadow: 0px 0px 0px 30px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
 }
 
 .close {
