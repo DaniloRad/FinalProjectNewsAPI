@@ -214,6 +214,7 @@ setInterval(function(){
 function getModalData(array,x){
     $(".modal").classList.remove("modal-out");
         $(".modal").classList.add("modal-in");
+        $(".wrapper").classList.add("blocked");
         $(".modal").id = "in";
         $(".modal").style.display = "block";
         $(".modalTitle").innerText = array[x-1].title;
@@ -247,6 +248,7 @@ $(".topRatedContainer").addEventListener("click", function(event){
 function closeModal(){
     $(".modal").classList.remove("modal-in");
         $(".modal").classList.add("modal-out");
+        $(".wrapper").classList.remove("blocked");
         $(".modal").id = "out";
     let modalOut = setInterval(function(){
         $(".modal").style.display = "none";
