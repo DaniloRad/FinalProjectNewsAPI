@@ -16,9 +16,9 @@ function getJSON(response) {
 }
 
 const headline = [], topRatedNews = [];
-let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0;
+let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
 let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=inter&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=sports&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
@@ -35,7 +35,7 @@ function getHeadlinesData(data,i,br){
 
 function getHeadlines(data){
     let i = 0, br = 0;
-    while (br < 9){
+    while (br < 6){
         if (data.articles[i].title !== null &&
             data.articles[i].urlToImage !== null){
                 getHeadlinesData(data,i,br);
@@ -52,7 +52,7 @@ function getHeadlines(data){
         i++;
     }
 
-    for (let i = 4; i <= 9; i++){
+    for (let i = 4; i <= 6; i++){
         $(`.slider${i}`).style.display = "none";
     }
 }
@@ -98,8 +98,8 @@ function getTopNews(data){
 }
 
 function rightArrows(){
-    if (screen.width < 600 || window.innerWidth < 600){
-        for (let i = 0; i < 9; i++){
+    if (screen.width < 600 || window.innerWidth < 1000){
+        for (let i = 0; i < 6; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
             }
@@ -108,8 +108,27 @@ function rightArrows(){
             }
         }
     }
-    else{
-        for (let i = 0; i < 9; i++){
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+        for (let i = 0; i < 6; i++){
+            $(`.slider${i+1}`).style.display = "none";
+        }
+
+        if(counterTwo === 0){
+            $(`.slider1`).style.display = "";
+            $(`.slider2`).style.display = "";
+        }
+        else if (counterTwo === 1){
+            $(`.slider3`).style.display = "";
+            $(`.slider4`).style.display = "";
+        }
+        else if (counterTwo === 2){
+            $(`.slider5`).style.display = "";
+            $(`.slider6`).style.display = "";
+        }
+
+    }
+    else {
+        for (let i = 0; i < 6; i++){
             $(`.slider${i+1}`).style.display = "none";
         }
             if(counter === 0){
@@ -121,18 +140,13 @@ function rightArrows(){
                 $(`.slider4`).style.display = "";
                 $(`.slider5`).style.display = "";
                 $(`.slider6`).style.display = "";
-            }
-            else if (counter === 2){
-                $(`.slider7`).style.display = "";
-                $(`.slider8`).style.display = "";
-                $(`.slider9`).style.display = "";
             }
     }
 }
 
 function leftArrows(){
-    if(screen.width < 600 || window.innerWidth < 600){
-        for (let i = 0; i < 9; i++){
+    if(screen.width < 600 || window.innerWidth < 1000){
+        for (let i = 0; i < 6; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
             }
@@ -141,8 +155,27 @@ function leftArrows(){
             }
         }
     }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+        for (let i = 0; i < 6; i++){
+            $(`.slider${i+1}`).style.display = "none";
+        }
+
+        if(counterTwo === 0){
+            $(`.slider1`).style.display = "";
+            $(`.slider2`).style.display = "";
+        }
+        else if (counterTwo === 1){
+            $(`.slider3`).style.display = "";
+            $(`.slider4`).style.display = "";
+        }
+        else if (counterTwo === 2){
+            $(`.slider5`).style.display = "";
+            $(`.slider6`).style.display = "";
+        }
+
+    }
     else{
-        for (let i = 0; i < 9; i++){
+        for (let i = 0; i < 6; i++){
             $(`.slider${i+1}`).style.display = "none";
         }
             if(counter === 0){
@@ -154,11 +187,6 @@ function leftArrows(){
                 $(`.slider4`).style.display = "";
                 $(`.slider5`).style.display = "";
                 $(`.slider6`).style.display = "";
-            }
-            else if (counter === 2){
-                $(`.slider7`).style.display = "";
-                $(`.slider8`).style.display = "";
-                $(`.slider9`).style.display = "";
             }
     }
 }
@@ -208,27 +236,42 @@ fetch(topNews)
 })
 
 
-$(".arrows").addEventListener("click", function(event){
-    if (event.target.classList.contains("fa-angle-right")){
-        counter++;
-        if (counter === 3){
-            counter = 0;
-        }
-        counterMobile++;
-        if (counterMobile === 9){
-            counterMobile = 0;
-        }
-        rightArrows();
-    }
-    else if(event.target.classList.contains("fa-angle-left")){
-        counter--;
+function reduceCounter(){
+    counter--;
         if (counter === -1) {
-            counter = 2;
+            counter = 1;
         }
         counterMobile--;
         if (counterMobile === -1){
-            counterMobile = 8;
+            counterMobile = 5;
         }
+        counterTwo--;
+        if (counterTwo === -1){
+            counterTwo = 2;
+        }
+}
+
+function increaseCounter(){
+    counter++;
+    if (counter === 2){
+        counter = 0;
+    }
+    counterMobile++;
+    if (counterMobile === 6){
+        counterMobile = 0;
+    }
+    counterTwo++;
+    if (counterTwo === 3){
+        counterTwo = 0;
+    }
+}
+$(".arrows").addEventListener("click", function(event){
+    if (event.target.classList.contains("fa-angle-right")){
+        increaseCounter();
+        rightArrows();
+    }
+    else if(event.target.classList.contains("fa-angle-left")){
+        reduceCounter();
         leftArrows();
     }
 })
@@ -236,17 +279,11 @@ $(".arrows").addEventListener("click", function(event){
 function leftRight(){
     document.onkeydown = function(e){
       if (e.key === "ArrowLeft"){
-        counter--;
-        if (counter === -1) {
-            counter = 2;
-        }
+        reduceCounter();
         leftArrows();
       }
       else if (e.key === "ArrowRight"){
-        counter++;
-        if (counter === 3){
-            counter = 0;
-        }
+        increaseCounter();
         rightArrows();
       }
     }
@@ -329,7 +366,7 @@ document.addEventListener("keydown", function(event){
 
 function mediaCheck(){
     if (screen.width < 600 || window.innerWidth < 600){
-        for (let i = 0; i < 9; i++){
+        for (let i = 0; i < 6; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
             }
@@ -338,8 +375,18 @@ function mediaCheck(){
             }
         }
     }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+        for (let i = 0; i < 6; i++){
+            if (i !== counterTwo && (i-1) !== counterTwo){
+                $(`.slider${i+1}`).style.display = "none";    
+            }
+            else{
+                $(`.slider${i+1}`).style.display = ""; 
+            }
+        }
+    }
     else{
-        for (let i = 4; i <= 9; i++){
+        for (let i = 4; i <= 6; i++){
             $(`.slider${i}`).style.display = "none";
         }
     }
@@ -348,8 +395,8 @@ function mediaCheck(){
 mediaCheck();
 
 window.addEventListener("resize", function(event){
-    if (screen.width < 600 || window.innerWidth < 600){
-        for (let i = 0; i < 9; i++){
+    if (screen.width < 600 || window.innerWidth <= 1000){
+        for (let i = 0; i < 6; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
             }
@@ -358,13 +405,18 @@ window.addEventListener("resize", function(event){
             }
         }
     }
-    else if (window.innerWidth > 600 && window.innerWidth < 1100) {
-        for (let i = 3; i <= 9; i++){
-            $(`.slider${i}`).style.display = "none";
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+        for (let i = 0; i < 6; i++){
+            if (i !== counterTwo && (i-1) !== counterTwo){
+                $(`.slider${i+1}`).style.display = "none";    
+            }
+            else{
+                $(`.slider${i+1}`).style.display = ""; 
+            }
         }
     }
     else{
-        for (let i = 4; i <= 9; i++){
+        for (let i = 4; i <= 6; i++){
             $(`.slider${i}`).style.display = "none";
         }
         for (let i = 1; i < 4; i++){
