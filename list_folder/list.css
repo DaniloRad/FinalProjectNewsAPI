@@ -5,7 +5,7 @@ body {
     margin: 0 auto;
     font-family: "Open Sans", "Arial", sans-serif;
     font-size: 16px;
-    width: 70%;
+    width: 80%;
 }
 
 header{
@@ -13,7 +13,7 @@ header{
     grid-template-columns: 1fr 10fr 1fr;
     padding-bottom: 2px;
     position: fixed;
-    width: 1063px;
+    width: 80%;
     top: 0px;
     border-bottom: 1px solid burlywood;
     background: darkgrey;
@@ -24,7 +24,7 @@ footer{
     height: 30px;
     position: fixed;
     bottom: 0px;
-    width: 1063px;
+    width: 80%;
     border-top: 1px solid burlywood;
     background: darkgray;
 }
