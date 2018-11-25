@@ -1,0 +1,146 @@
+.bg-cover{
+    background-size: cover;
+    padding-top: 1%;
+}
+.bg-center{
+    background-position: center;
+}
+.hero-image{
+    background-image: url('https://images.unsplash.com/photo-1494398184676-a6dbe23b2409?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=700d8ca89ed933adf87dbc8e68885ef7&auto=format&fit=crop&w=2022&q=80');
+    height: 95vh ;
+    width: 100%;
+}
+
+.container{
+    padding-top: 10vh; 
+    display: grid;
+    grid-template-columns: 41% 41%;
+    grid-gap: 5%;
+    margin-left: 10%;
+    margin-right: 5%;
+    
+}
+.second-content-h1{
+    padding-top: 10vh;
+}
+
+.third-content-p{
+padding-top: 25vh;
+}
+.img{
+    height: 60vh;
+    width: 100%;
+    
+}
+.img1{
+    padding-top: 10vh;  
+}
+.item{
+    grid-column-start: 1;
+    grid-column-end: 2;
+   
+}
+.item1{
+    grid-column-start: 2;
+    grid-column-end: 3; 
+    
+   
+}
+.item2{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.item3{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.h1-position-and-font-size{
+   padding-top: 7%;
+    padding-left: 33%;
+    font-size: 10vh;
+    
+
+}
+.h1-txtAlign-color{
+    color: white;
+    text-align: center;
+}
+.img-slider{
+    width: 100%;
+    height: 50vh;
+}
+
+.first-content{
+    height: 50vh;
+}
+.carousel-title{
+    padding-top: 20vh;
+    padding-left:28%;
+    padding-bottom: 5vh;
+}
+.div-button{
+    padding-left: 20vh;
+}
+/*on hover btn actions */
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #4C4765;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+/*@media only screen and (min-height: 1px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-height: 768px){
+    .container{
+        width: 768px;
+    }
+}
+
+@media only screen and (min-height: 1024px){
+    .container{
+        width: 1024px;
+    }
+}
+ll
+@media only screen and (min-height: 1200px){
+    .container{
+        width: 1200px;
+    }
+}*/
