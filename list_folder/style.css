@@ -460,3 +460,18 @@ i {
         color: darkblue;
     }
 } 
+
+
+.dropdown:hover .dropdown-items a {
+    animation: dropdown-anim 1s forwards;
+    display: block;
+}
+
+@keyframes dropdown-anim {
+    0% {
+        transform: translateX(20px) rotate(-30deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
