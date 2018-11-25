@@ -24,8 +24,8 @@
     }
 
     .topRatedContainer img {
-        width: 140px;
-        height: 80px;
+        width: 100%;
+        height: auto;
         margin-bottom: 20px;
         cursor: pointer;
     }
@@ -33,7 +33,7 @@
     [class^=cellp] p {
         margin-left: 5px;
         margin-right: 5px;
-        font-size: 10px;
+        font-size: 13px;
     }
 
     footer {
@@ -50,6 +50,7 @@
         border: solid 2px royalblue;
         color: darkblue;
     }
+    
 } 
 
 @media (max-width: 1300px){
