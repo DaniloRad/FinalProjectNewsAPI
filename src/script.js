@@ -98,7 +98,7 @@ function getTopNews(data){
 }
 
 function rightArrows(){
-    if (window.innerWidth < 600){
+    if (screen.width < 600 || window.innerWidth < 600){
         for (let i = 0; i < 9; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
@@ -131,7 +131,7 @@ function rightArrows(){
 }
 
 function leftArrows(){
-    if(window.innerWidth < 600){
+    if(screen.width < 600 || window.innerWidth < 600){
         for (let i = 0; i < 9; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
@@ -328,7 +328,7 @@ document.addEventListener("keydown", function(event){
 })
 
 function mediaCheck(){
-    if (screen.width < 600){
+    if (screen.width < 600 || window.innerWidth < 600){
         for (let i = 0; i < 9; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
@@ -346,8 +346,9 @@ function mediaCheck(){
 };
 
 mediaCheck();
+
 window.addEventListener("resize", function(event){
-    if (screen.width < 600){
+    if (screen.width < 600 || window.innerWidth < 600){
         for (let i = 0; i < 9; i++){
             if (i !== counterMobile){
                 $(`.slider${i+1}`).style.display = "none";    
