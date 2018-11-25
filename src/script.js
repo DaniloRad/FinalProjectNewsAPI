@@ -18,7 +18,7 @@ function getJSON(response) {
 const headline = [], topRatedNews = [];
 let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0;
 let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=apple&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=inter&apiKey=61f183b6efeb48cdab07b405197cd533";
 let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
@@ -356,6 +356,11 @@ window.addEventListener("resize", function(event){
             else{
                 $(`.slider${i+1}`).style.display = ""; 
             }
+        }
+    }
+    else if (window.innerWidth > 600 && window.innerWidth < 1100) {
+        for (let i = 3; i <= 9; i++){
+            $(`.slider${i}`).style.display = "none";
         }
     }
     else{

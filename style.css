@@ -1,11 +1,12 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0 auto;
     font-family: "Open Sans", "Arial", sans-serif;
     font-size: 16px;
-    width: 70%;
+    width: 80%;
 }
 
 header{
@@ -13,10 +14,11 @@ header{
     grid-template-columns: 1fr 10fr 1fr;
     padding-bottom: 2px;
     position: fixed;
-    width: 1063px;
     top: 0px;
+    width: 80%;
     border-bottom: 1px solid burlywood;
     background: darkgrey;
+    z-index: 1;
 }
 
 footer{
@@ -24,7 +26,7 @@ footer{
     height: 30px;
     position: fixed;
     bottom: 0px;
-    width: 1063px;
+    width: 80%;
     border-top: 1px solid burlywood;
     background: darkgray;
 }
@@ -94,11 +96,10 @@ a{
 }
 
 .container {
-    position: relative;
     display: grid;
     width: 100%;
     grid-gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
     "slider slider slider best"
     "slider slider slider best"
     "slider slider slider fbFeed"
@@ -107,6 +108,7 @@ a{
     "topRated topRated topRated fbFeed";
     margin-top: 50px;
     margin-bottom: 50px;
+    
 }
 
 .slider {
@@ -125,8 +127,8 @@ a{
 }
 
 .displaySlider div{
-    height: 230px;
-    width: 230px;
+    height: 250px;
+    width: 30%;
     color: darkblue;
 }
 
@@ -150,7 +152,6 @@ a{
 
 .fbFeed {
     grid-area: fbFeed;
-    height: auto;
 }
 
 .container a:hover{
@@ -159,7 +160,7 @@ a{
 }
 
 .bestContainer img {
-    width: 100px;
+    width: 50%;
     height: 60px;
     margin-bottom: 10px;
     margin-left: 5px;
@@ -172,7 +173,8 @@ a{
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    width: 230px;
+    width: 100%;
+    max-width: 230px;
     font-size: 12px;
 }
 
@@ -204,7 +206,7 @@ i {
 }
 
 .topRatedContainer img {
-    width: 140px;
+    width: 100%;
     height: 100px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -237,10 +239,8 @@ i {
     cursor: pointer;
 }
 
-.displaySlider [class^=slider] p[class^="headline"]{
-    font-weight: bolder;
-    text-align: center;
-    font-size: 18px;
+p[class^="headline"]{
+    font-size: 22px;
     color: whitesmoke;
 }
 
@@ -260,10 +260,10 @@ i {
     position: fixed;
     z-index: 1;
     padding-top: 100px;
-    left: 5%;
-    top: 5%;
-    bottom: 5%;
-    right: 5%;
+    left: 5vw;
+    top: 5vh;
+    bottom: 5vh;
+    right: 5vw;
     background-color: black;
     color: whitesmoke;
     box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
@@ -283,7 +283,7 @@ i {
     color: #999;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
 .modalTitle {
     color: white;
@@ -292,7 +292,7 @@ i {
     text-align: center;
 }
 
-.modalContainer {   
+.modalContainer {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -330,72 +330,10 @@ i {
     text-align: center;
 }
 
-#in {
-    transform:scaleY(.01) scaleX(0);
-    animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-}
-
-.modal-in {
-        transform:scale(0);
-        animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-}
-
-#out {
-    transform:scale(1);
-    animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-}
-
-.modal-out {
-        animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-}
-
-
-@keyframes unfoldIn {
-    0% {
-      transform:scaleY(.005) scaleX(0);
-    }
-    50% {
-      transform:scaleY(.005) scaleX(1);
-    }
-    100% {
-      transform:scaleY(1) scaleX(1);
-    }
-  }
-
-@keyframes zoomIn {
-    0% {
-      transform:scale(0);
-    }
-    100% {
-      transform:scale(1);
-    }
-}
-
-@keyframes unfoldOut {
-    0% {
-      transform:scaleY(1) scaleX(1);
-    }
-    50% {
-      transform:scaleY(.005) scaleX(1);
-    }
-    100% {
-      transform:scaleY(.005) scaleX(0);
-    }
-}
-
-@keyframes zoomOut {
-    0% {
-      transform:scale(1);
-    }
-    100% {
-      transform:scale(0);
-    }
-}
-
 .blocked{
         position:relative;
 }
-    
+
 .blocked:after{
         content: '';
         position: absolute;
@@ -405,58 +343,4 @@ i {
         bottom:0;
         z-index:1;
         background: transparent;
-}
-
-@media (max-width: 600px) {
-    body{
-        width: 95%;
-    }
-
-    .fbFeed, .best {
-        display: none;
-    }
-    .container {
-        display: grid;
-        width: 100%;
-        grid-gap: 5px;
-        grid-template-areas: 
-        "slider slider"
-        "topRated topRated";
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-
-    .topRatedContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        
-    }
-
-    .topRatedContainer img {
-        width: 140px;
-        height: 80px;
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
-
-    [class^=cellp] p {
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 10px;
-    }
-
-    footer {
-        width: 95%;
-    }
-
-    header {
-        width: 95%;
-    }
-
-    .displaySlider div{
-        height: 250px;
-        width: 250px;
-        border: solid 2px royalblue;
-        color: darkblue;
-    }
 }
