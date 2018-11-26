@@ -50,7 +50,7 @@ p {
 
 #showcase .bg-image {
   position: absolute;
-  background: #333 url("/images/rawpixelcroped.jpg");
+  background: #333 url("../images/rawpixelcroped.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -117,6 +117,7 @@ p {
 /* Media queries*/
 
 @media (min-width: 700px) {
+
   .grid-box {  
     display: grid;
     grid-template-columns: 47.5% 47.5%;
@@ -127,6 +128,9 @@ p {
     padding-left: 5em;
     padding-right: 5em;
     
+  }
+  .content-wrap-h1{
+    font-size: 2em;
   }
  .box-content-title{
      padding-top: 1em;
@@ -157,6 +161,14 @@ p {
         grid-gap: 5%;
         margin-left: 7.5%;
         margin-right: 7.5%;
+      }
+      .content-title{
+        padding-top: 3.5em;
+        padding-bottom: 1.5em;
+      }
+      .content-wrap-h1{
+        margin-left: 3em;
+        margin-right:3em;
       }
       .be-informed-style{
         padding-top: 2em;
