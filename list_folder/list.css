@@ -106,3 +106,109 @@ a{
         transform: translateX(0) rotate(0);
     }
 }
+<<<<<<< HEAD
+=======
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container > div {
+    margin-bottom: 3%;
+}
+
+.container > div:last-child {
+    margin-bottom: 0;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 60%;
+    margin-right: 2%;
+}
+
+.filters {
+    width: 80%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(187, 187, 187);
+}
+
+.filters > div:first-child {
+    margin-left: 10%;
+}
+
+.filters > div:last-child {
+    margin-right: 10%;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.columns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-one {
+    margin-right: 15%;
+}
+
+.pages {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    margin-left: 5%;
+}
+
+.info p {
+    margin: 0;
+}
+
+.news {
+    margin-bottom: 3%;
+}
+
+>>>>>>> luka_branch
