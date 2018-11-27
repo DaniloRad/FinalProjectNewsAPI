@@ -161,6 +161,12 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    font-size: 0.8rem;
+}
+
+.main-content img {
+    width: 300px;
+    height: 200px;
 }
 
 .columns {
