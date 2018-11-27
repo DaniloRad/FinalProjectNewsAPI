@@ -54,8 +54,12 @@
     p[class^="headline"]{
         text-align: center;
         font-weight: 600;
-        font-size: 22px;
+        font-size: 18px;
         color: whitesmoke;
+    }
+
+    p[class^="headline"] a{
+        font-size: 14px;
     }
 
 }

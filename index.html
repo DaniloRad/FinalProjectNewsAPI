@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
-
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Aref+Ruqaa" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/animation.css">
     <link rel="stylesheet" href="styles/media.css">
@@ -14,13 +14,7 @@
 </head>
 <body>
     <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        <script src="src/fbFeed.js"></script>
 
     <div class="wrapper">
         <header>
@@ -30,26 +24,25 @@
                     <a href="#">Home</a>
                     <a href="list_folder/list.html">List</a>
                     <a href="#">Custom Page</a>
-                    <a href="#">About Us</a>
                     <div class="dropdown">
-                            <a href="#">Categories</a>
-                            <div class="dropdown-items">
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                            </div>
-                          </div>
+                        <a href="#">Source</a>
+                        <div class="dropdown-items">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                        </div>
+                      </div>
+                    <a href="#">About Us</a>
+                    
                 </nav>
     
-                <div class="avatar">
-                    <img src="https://pickaface.net/gallery/avatar/unr_pickaface_170126_2034_9qo06r.png" alt="">
-                </div>
+                
         </header>
 
         <div class="container">
                     <div class="slider">
                         <h2>Headlines</h2>
-                        <div class="displaySlider">
+                        <div class="displaySlider animated fadeIn">
                                 <div class="slider1">
                                     <p class="headline1"></p>
                                     <p class="textHeadline1"></p>
@@ -82,7 +75,7 @@
                     </div>
 
                     <div class="topRated">
-                        <h2>Top Rated</h2>
+                        <h2>Top Rated News</h2>
                         <div class="topRatedContainer">
                         </div>
 
@@ -92,9 +85,9 @@
                     <div class="best">
                         <div class="bestContainer">
                             <h3>Flash News</h3>
-                            <div class="flash1"></div>
-                            <div class="flash2"></div>
-                            <div class="flash3"></div>
+                            <div class="flash flash1"></div>
+                            <div class="flash flash2"></div>
+                            <div class="flash flash3"></div>
                         </div>
                     </div>
         

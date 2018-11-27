@@ -15,7 +15,7 @@ function getJSON(response) {
     return response.json();
 }
 
-const headline = [], topRatedNews = [];
+const headline = [], topRatedNews = [], flash = [];
 let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
 let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 let flashNews = "https://newsapi.org/v2/everything?q=sports&apiKey=61f183b6efeb48cdab07b405197cd533";
@@ -33,18 +33,39 @@ function getHeadlinesData(data,i,br){
     }
 }
 
+function getTopNewsData(data,i){
+    topRatedNews[i] = {
+    title: data.articles[i].title,
+    img: data.articles[i].urlToImage,
+    author: data.articles[i].author,
+    content: data.articles[i].content,
+    date: data.articles[i].publishedAt.split("T")[0] ,
+    link: data.articles[i].url
+    }
+}
+
+function getFlashData(data,i){
+    flash[i] = {
+    title: data.articles[i].title,
+    img: data.articles[i].urlToImage,
+    author: data.articles[i].author,
+    content: data.articles[i].content,
+    date: data.articles[i].publishedAt.split("T")[0] ,
+    link: data.articles[i].url
+    }
+}
+
 function getHeadlines(data){
     let i = 0, br = 0;
     while (br < 6){
         if (data.articles[i].title !== null &&
             data.articles[i].urlToImage !== null){
                 getHeadlinesData(data,i,br);
-    $(`.headline${br+1}`).innerText = `${data.articles[i].title}`;
+    $(`.headline${br+1}`).innerHTML = `${data.articles[i].title} <a class="a a${br+1}">   Read more</a>`;
     $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
       ), url(${data.articles[i].urlToImage})`;
-    $(`.textHeadline${br+1}`).innerHTML = `${data.articles[i].description}<a class="a a${br+1}">..read more</a>`;
     br++;
     i++;
     }
@@ -61,20 +82,10 @@ function getHeadlines(data){
 
 function getFlashNews(data){
     for(let i = 0; i < 3; i++){
-        $(`.flash${i+1}`).innerHTML = `<img src="${data.articles[i].urlToImage}">${data.articles[i].title}<a>Read more</a>`;
+        getFlashData(data,i);
+        $(`.flash${i+1}`).innerHTML = `<img class="img img${i+1}" src="${data.articles[i].urlToImage}">${data.articles[i].title}`;
         $(`.flash${i+1}`).title = ``;
     }
-}
-
-function getTopNewsData(data,i){
-        topRatedNews[i] = {
-        title: data.articles[i].title,
-        img: data.articles[i].urlToImage,
-        author: data.articles[i].author,
-        content: data.articles[i].content,
-        date: data.articles[i].publishedAt.split("T")[0] ,
-        link: data.articles[i].url
-        }
 }
 
 function getTopNews(data){
@@ -97,7 +108,7 @@ function getTopNews(data){
 
 }
 
-function rightArrows(){
+function arrows(){
     if (screen.width < 600 || window.innerWidth < 1000){
         for (let i = 0; i < 6; i++){
             if (i !== counterMobile){
@@ -144,55 +155,6 @@ function rightArrows(){
     }
 }
 
-function leftArrows(){
-    if(screen.width < 600 || window.innerWidth < 1000){
-        for (let i = 0; i < 6; i++){
-            if (i !== counterMobile){
-                $(`.slider${i+1}`).style.display = "none";    
-            }
-            else{
-                $(`.slider${i+1}`).style.display = ""; 
-            }
-        }
-    }
-    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
-        for (let i = 0; i < 6; i++){
-            $(`.slider${i+1}`).style.display = "none";
-        }
-
-        if(counterTwo === 0){
-            $(`.slider1`).style.display = "";
-            $(`.slider2`).style.display = "";
-        }
-        else if (counterTwo === 1){
-            $(`.slider3`).style.display = "";
-            $(`.slider4`).style.display = "";
-        }
-        else if (counterTwo === 2){
-            $(`.slider5`).style.display = "";
-            $(`.slider6`).style.display = "";
-        }
-
-    }
-    else{
-        for (let i = 0; i < 6; i++){
-            $(`.slider${i+1}`).style.display = "none";
-        }
-            if(counter === 0){
-                $(`.slider1`).style.display = "";
-                $(`.slider2`).style.display = "";
-                $(`.slider3`).style.display = "";
-            }
-            else if (counter === 1){
-                $(`.slider4`).style.display = "";
-                $(`.slider5`).style.display = "";
-                $(`.slider6`).style.display = "";
-            }
-    }
-}
-
-
-
 $(".btn-loadMore").addEventListener("click", function(){
     for (let i = 0; i < 3; i++){
         $(`.cell${loadMoreCounter+i}`).style.display = "";
@@ -235,6 +197,12 @@ fetch(topNews)
         console.log("Error ", err);
 })
 
+function sliderAnimation(){
+    $(".displaySlider").classList.remove("animated","fadeIn");
+        window.requestAnimationFrame(function() {
+            $(".displaySlider").classList.add("animated","fadeIn");
+          });
+}
 
 function reduceCounter(){
     counter--;
@@ -268,11 +236,13 @@ function increaseCounter(){
 $(".arrows").addEventListener("click", function(event){
     if (event.target.classList.contains("fa-angle-right")){
         increaseCounter();
-        rightArrows();
+        sliderAnimation();
+        arrows();
     }
     else if(event.target.classList.contains("fa-angle-left")){
         reduceCounter();
-        leftArrows();
+        sliderAnimation();
+        arrows();
     }
 })
 
@@ -280,11 +250,11 @@ function leftRight(){
     document.onkeydown = function(e){
       if (e.key === "ArrowLeft"){
         reduceCounter();
-        leftArrows();
+        arrows();
       }
       else if (e.key === "ArrowRight"){
         increaseCounter();
-        rightArrows();
+        arrows();
       }
     }
   }
@@ -301,13 +271,11 @@ function leftRight(){
   $(".slider").addEventListener("mouseover", leftRight);
   $(".slider").addEventListener("mouseout", doNothing);
 
-/* setInterval(function(){
-    counter++;
-        if (counter === 3){
-            counter = 0;
-        }
-        rightArrows();
-}, 5000); */
+setInterval(function(){
+    increaseCounter();
+    sliderAnimation();
+        arrows();
+}, 5000);
 
 
 function getModalData(array,x){
@@ -337,11 +305,24 @@ $(".displaySlider").addEventListener("click", function(event){
 
 $(".topRatedContainer").addEventListener("click", function(event){
     if (event.target.classList.contains("img")){
-        console.log(typeof(event.target.parentNode.className.slice(-1)));
         let x = parseInt(event.target.parentNode.className.slice(-1));
         getModalData(topRatedNews,x);
     }
 })
+
+$(".bestContainer").addEventListener("click", function(event){
+    console.log(event.target);
+    if (event.target.classList.contains("img")){
+        let x = parseInt(event.target.parentNode.className.slice(-1));
+        getModalData(flash,x);
+    }
+    if (event.target.classList.contains("flash")){
+        let x = parseInt(event.target.className.slice(-1));
+        getModalData(flash,x);
+    }
+})
+
+
 
 function closeModal(){
     $(".modal").classList.remove("modal-in");
