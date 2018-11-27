@@ -41,7 +41,7 @@ p {
   color: #333;
 }
 
-/*Main area */
+/*bg-image */
 #showcase {
   min-height: 450px;
   color: #fff;
@@ -129,9 +129,7 @@ p {
     padding-right: 5em;
     
   }
-  .content-wrap-h1{
-    font-size: 2em;
-  }
+  
  .box-content-title{
      padding-top: 1em;
  }
