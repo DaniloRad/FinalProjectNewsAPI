@@ -33,7 +33,7 @@
     [class^=cellp] p {
         margin-left: 5px;
         margin-right: 5px;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     footer {
@@ -62,13 +62,40 @@
         font-size: 14px;
     }
 
+    .modalTitle {
+        color: white;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .modalAuthor, .modalDate {
+        font-size: 10px;
+    }
+    
+    .modalContent {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .modalLink {
+        margin-top: 10px;
+        text-align: center;
+        text-decoration: underline;
+    }
 }
 
-@media (max-width: 800px) and (min-width: 601px){
+@media (max-width: 800px) and (min-width: 701px){
     .topRatedContainer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         
+    }
+
+    .modalTitle {
+        color: white;
+        font-size: 22px;
+        text-align: center;
     }
 
     .displaySlider div{
@@ -83,6 +110,22 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         
+    }
+
+    .modalTitle {
+        color: white;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .modalAuthor, .modalDate {
+        font-size: 14px;
+    }
+
+    .modalContent {
+        font-size: 16px;
+        text-align: center;
+        margin-top: 20px;
     }
 
     .displaySlider div{
