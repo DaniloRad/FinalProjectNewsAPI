@@ -30,7 +30,7 @@ h3 {
 
 #showcase .bg-image {
   position: absolute;
-  background: #333 url("custom.images/achievement-agreement-arms-1068523.jpg");
+  background: #333 url("../custom.images/achievement-agreement-arms-1068523.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,11 +50,21 @@ h3 {
   padding: 0;
   background: #333;
 }
-.container{
-    max-width: 760px;
-    margin: auto;
-    border: #fff solid 1px;
-    background: #fff;
+.container {
+  max-width: 760px;
+  margin: auto;
+  border: grey solid 1px;
+  background: grey;
+}
+.main-img img,
+.images img {
+  width: 100%;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
 }
 @media (min-width: 700px) {
   #showcase h1 {
