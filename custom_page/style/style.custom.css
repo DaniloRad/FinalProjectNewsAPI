@@ -66,9 +66,17 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
 }
-@media (min-width: 700px) {
+.images img {
+  cursor: pointer;
+}
+
+
+@media (max-width: 700px) {
   #showcase h1 {
     padding-top: 3em;
     font-size: 3.5rem;
+  }
+  .images {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
