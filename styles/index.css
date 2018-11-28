@@ -9,6 +9,10 @@ body {
     width: 80%;
 }
 
+.wrapper{
+    background: whitesmoke;
+}
+
 header{
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
@@ -46,15 +50,19 @@ header img{
     width: 60px;
 }
 
-.avatar {
+.country {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.avatar img {
-    width: 30px;
-    border-radius: 50%;
+.country span {
+    margin-right: 3px;
+    cursor: pointer;
+}
+a{
+    color: white;
+    text-decoration: none;
 }
 
 header nav, footer nav {
@@ -64,13 +72,8 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
+    color: darkblue;
     margin: 0 20px;
-}
-
-
-a{
-    color: white;
-    text-decoration: none;
 }
 
 .dropdown-items {
@@ -83,7 +86,6 @@ a{
 
 .dropdown:hover .dropdown-items {
     display: block;
-    
 }
 
 .dropdown-items a {
@@ -130,10 +132,16 @@ a{
     height: 250px;
     width: 30%;
     color: darkblue;
+    border-radius: 8px;
+}
+
+.displaySlider div:hover{
+    box-shadow: 0 0 2px 5px rgba(0, 140, 186, 0.5);
 }
 
 [class^=slider] {
     background-size: 100% 100%;
+    position: relative;
 }
 
 .best {
@@ -166,7 +174,12 @@ a{
     margin-left: 5px;
     margin-right: 3px;
     float: left;
-    
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.bestContainer img:hover {
+    box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
 }
 
 .bestContainer {
@@ -175,28 +188,30 @@ a{
     word-wrap: break-word;
     width: 100%;
     max-width: 230px;
-    font-size: 12px;
-}
-
-.bestContainer a {
-    margin-left: 10px;
+    font-size: 0.750em;
 }
 
 h2{
+    font-family: 'Aref Ruqaa', serif;
     margin-left: 5px;
     margin-top: 0;
     text-align: center;
-}
-
-h3{
-    margin-left: 5px;
-    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     text-decoration: underline;
 }
 
-i {
+h3{
+    font-family: 'Aref Ruqaa', serif;
+    margin-left: 5px;
+    margin-top: 0;
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+
+i{
     display: inline-block;
-    font-size: 45px;
+    font-size: 2.2em;
     margin: 0 20px;
     cursor: pointer;
 }
@@ -210,7 +225,16 @@ i {
     height: 100px;
     margin-bottom: 20px;
     cursor: pointer;
+    border: 1px solid darkblue;
+    border-radius: 8px;
+    padding: 3px;
 }
+
+.topRatedContainer img:hover {
+    box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
+}
+
+
 
 .topRatedContainer {
     display: grid;
@@ -219,10 +243,11 @@ i {
 }
 
 [class^=cellp] p {
+    font-family: 'Merriweather', serif;
     margin-left: 5px;
     margin-right: 5px;
     margin-top:-1px;
-    font-size: 10px;
+    font-size: 0.625em;
 }
 
 .loadMore {
@@ -230,7 +255,7 @@ i {
 }
 
 .loadMore button{
-    font-size: 10px;
+    font-size: 0.625em;
     background: #042a63;
     border-radius: 3px;
     color: white;
@@ -240,21 +265,33 @@ i {
 }
 
 p[class^="headline"]{
-    text-align: center;
+    font-family: 'Merriweather', serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1em;
     color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+}
+
+p[class^="headline"] a{
+    color:yellow;
+    text-decoration: underline;
+    margin-left: 3px;
+    font-size: 0.750em;
 }
 
 .displaySlider [class^=slider] p[class^="text"] {
     margin-left: 4px;
-    font-size: 12px;
+    font-size: 0.750em;
     color: yellow;
     font-weight: bold;
 }
 
 [class^=flash] {
-    font-size: 10px;
+    font-family: 'Merriweather', serif;
+    font-size: 0.8em;
+    cursor: pointer;
 }
 
 .modal {
@@ -266,9 +303,10 @@ p[class^="headline"]{
     top: 5vh;
     bottom: 5vh;
     right: 5vw;
-    background-color: black;
+    background-color: #2690d4;
     color: whitesmoke;
     box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
+    overflow: auto;
 }
 
 .close {
@@ -276,7 +314,7 @@ p[class^="headline"]{
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 25px;
+    font-size: 1.563em;
     font-weight: bold;
   }
   
@@ -287,11 +325,16 @@ p[class^="headline"]{
     cursor: pointer;
 }
 
+.modal-open{
+    overflow: hidden;
+}
+
 .modalTitle {
     color: white;
-    font-size: 30px;
+    font-size: 1.563em;
     margin-bottom: 20px;
     text-align: center;
+    font-family: 'Aref Ruqaa', serif;
 }
 
 .modalContainer {
@@ -311,25 +354,33 @@ p[class^="headline"]{
     max-width: 600px;
     height: auto;
     max-height: 350px;
+    border-radius: 5px;
 }
 
-.modalAuthor {
+.modalAuthor,.modalDate {
     display: block;
     text-align: center;
-}
-
-.modalDate {
-    margin-left: 50px;
+    font-family: 'Merriweather', serif;
 }
 
 .modalContent {
     text-align: center;
     margin-top: 20px;
+    font-family: 'Merriweather', serif;
 }
 
 .modalLink {
     margin-top: 10px;
     text-align: center;
+}
+
+.modalLink a{
+    color: yellow;
+}
+
+.modalLink a:hover{
+    color: yellow;
+    text-decoration: underline;
 }
 
 .blocked{
@@ -345,4 +396,8 @@ p[class^="headline"]{
         bottom:0;
         z-index:1;
         background: transparent;
+}
+
+.mobile {
+    display: none;
 }
