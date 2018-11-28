@@ -80,3 +80,21 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media(min-width: 1400px){
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    
+  }
+  .grid1And3{
+    padding-top: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size:20px;
+  }
+}
+@media(max-width:1399px){
+  .grid1And3{
+    display: none;
+  }
+}

@@ -12,3 +12,45 @@
   opacity: 0;
   animation: fadeIn var(--fade-time) ease-in 1 forwards;
 }
+/*Animation from right to left*/
+.img-animationRL{
+    position: relative;
+    animation-name: moveAnimRL;
+    animation-duration: 2s;
+  
+  }
+  @keyframes moveAnimRL{
+    from {
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+    0%{
+      right: 0%; left: 100%;
+    }
+    100%{
+      right: 100%; left: 0%;
+    }
+  }
+  /*animation from left to right*/
+  .img-animationLR{
+    position: relative;
+    animation-name: moveAnimLR;
+    animation-duration: 2s;
+  
+  }
+  @keyframes moveAnimLR{
+    from {
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+    0%{
+      right: 100%;
+    }
+    100%{
+      right: 0%;
+    }
+  }
