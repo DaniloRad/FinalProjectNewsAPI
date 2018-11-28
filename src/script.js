@@ -17,9 +17,9 @@ function getJSON(response) {
 
 const headline = [], topRatedNews = [], flash = [];
 let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=sports&apiKey=61f183b6efeb48cdab07b405197cd533";
-let topNews = "https://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=fr&pageSize=100&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=everything&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
+let topNews = "https://newsapi.org/v2/everything?sources=al-jazzera-english&pageSize=48&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
 function getHeadlinesData(data,i,br){
@@ -154,6 +154,7 @@ function arrows(){
                 $(`.slider6`).style.display = "";
             }
     }
+    sliderAnimation();
 }
 
 $(".btn-loadMore").addEventListener("click", function(){
@@ -162,12 +163,17 @@ $(".btn-loadMore").addEventListener("click", function(){
         $(`.cellp${loadMoreCounter+i}`).style.display = "";
     }
     loadMoreCounter += 3;
+    console.log(loadMoreCounter, topRatedNews.length);
+    if(loadMoreCounter > topRatedNews.length - 1){
+        $(".btn-loadMore").style.display = "none";
+    }
 })
 
 fetch(headlineNews)
     .then(checkStatus)
     .then(getJSON)
     .then(function (data) {
+        console.log(data);
         getHeadlines(data);
     })
     .catch(function (err) {
@@ -185,14 +191,12 @@ fetch(flashNews)
         console.log("Error ", err);
     })
 
-
-
-
 fetch(topNews)
     .then(checkStatus)
     .then(getJSON)
     .then(function (data) {
         getTopNews(data);
+        console.log(data);
     })
     .catch(function (err) {
         console.log("Error ", err);
@@ -203,7 +207,7 @@ function sliderAnimation(){
         window.requestAnimationFrame(function() {
             $(".displaySlider").classList.add("animated","fadeIn");
           });
-}
+};
 
 function reduceCounter(){
     counter--;
@@ -234,15 +238,14 @@ function increaseCounter(){
         counterTwo = 0;
     }
 }
+
 $(".arrows").addEventListener("click", function(event){
     if (event.target.classList.contains("fa-angle-right")){
         increaseCounter();
-        sliderAnimation();
         arrows();
     }
     else if(event.target.classList.contains("fa-angle-left")){
         reduceCounter();
-        sliderAnimation();
         arrows();
     }
 })
@@ -273,10 +276,10 @@ function leftRight(){
   $(".slider").addEventListener("mouseout", doNothing);
 
 setInterval(function(){
-    increaseCounter();
-    sliderAnimation();
+        increaseCounter();
         arrows();
-}, 5000);
+    }, 5000);
+
 
 
 function getModalData(array,x){
@@ -287,39 +290,45 @@ function getModalData(array,x){
         $(".modal").id = "in";
         $(".modal").style.display = "block";
         $(".modalTitle").innerText = array[x-1].title;
-        if(array[x-1].author !== null && headline[x-1].author !== ""){
+        if (array[x-1].author !== null && array[x-1].author !== ""){
         $(".modalAuthor").innerHTML = `Author: ${array[x-1].author}<span class="modalDate">Date: ${array[x-1].date}</span>`;
         }
         else{
         $(".modalAuthor").innerHTML = `Author: Unknown<span class="modalDate">Date: ${array[x-1].date}</span>`;
         }
         $(".modalImg").src = `${array[x-1].img}`;
-        $(".modalContent").innerText = array[x-1].content.split("[")[0];
+        if (array[x-1].content === null){
+            $(".modalContent").innerText = "No content. Sorry!";    
+        }
+        else{
+            $(".modalContent").innerText = array[x-1].content.split("[")[0];
+        }
         $(".modalLink").innerHTML = `<a href="${array[x-1].link}" target="_blank">Click Here for More</a>`;
 }
 
 $(".displaySlider").addEventListener("click", function(event){
+    console.log(event.target.parentNode.className.slice(-1));
     if (event.target.classList.contains("a")){
-        let x = parseInt(event.target.parentNode.className.slice(-1));
+        let x = parseInt(event.target.parentNode.className.match(/\d+/g));
         getModalData(headline,x);
     }
 })
 
 $(".topRatedContainer").addEventListener("click", function(event){
     if (event.target.classList.contains("img")){
-        let x = parseInt(event.target.parentNode.className.slice(-1));
+        let x = parseInt(event.target.parentNode.className.match(/\d+/g));
+        console.log(x);
         getModalData(topRatedNews,x);
     }
 })
 
 $(".bestContainer").addEventListener("click", function(event){
-    console.log(event.target);
     if (event.target.classList.contains("img")){
-        let x = parseInt(event.target.parentNode.className.slice(-1));
+        let x = parseInt(event.target.parentNode.className.match(/\d+/g));
         getModalData(flash,x);
     }
     if (event.target.classList.contains("flash")){
-        let x = parseInt(event.target.className.slice(-1));
+        let x = parseInt(event.target.className.match(/\d+/g));
         getModalData(flash,x);
     }
 })
@@ -407,10 +416,6 @@ window.addEventListener("resize", function(event){
     }
 });
 
-$("body").addEventListener("click", function(event){
-    console.log(event.target);
-});
-
 function getRandomColor() {
     var letters = '0123456789'.split('');
     var color = '#';
@@ -419,3 +424,8 @@ function getRandomColor() {
     }
     return color;
 }
+
+$(".menu").addEventListener("click", function(){
+    $(".menu").classList.toggle("change");
+    $(".mobile").classList.toggle("active");
+});

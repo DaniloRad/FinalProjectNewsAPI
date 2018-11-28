@@ -50,6 +50,21 @@ header img{
     width: 60px;
 }
 
+.country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.country span {
+    margin-right: 3px;
+    cursor: pointer;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
 header nav, footer nav {
     display: flex;
     align-items: center;
@@ -57,13 +72,8 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
+    color: darkblue;
     margin: 0 20px;
-}
-
-
-a{
-    color: white;
-    text-decoration: none;
 }
 
 .dropdown-items {
@@ -76,7 +86,6 @@ a{
 
 .dropdown:hover .dropdown-items {
     display: block;
-    
 }
 
 .dropdown-items a {
@@ -179,17 +188,17 @@ a{
     word-wrap: break-word;
     width: 100%;
     max-width: 230px;
-    font-size: 12px;
+    font-size: 0.750em;
 }
 
 h2{
     font-family: 'Aref Ruqaa', serif;
-    font-style: italic; 
     margin-left: 5px;
     margin-top: 0;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+    text-decoration: underline;
 }
 
 h3{
@@ -200,9 +209,9 @@ h3{
     letter-spacing: 2px;
 }
 
-i {
+i{
     display: inline-block;
-    font-size: 45px;
+    font-size: 2.2em;
     margin: 0 20px;
     cursor: pointer;
 }
@@ -238,7 +247,7 @@ i {
     margin-left: 5px;
     margin-right: 5px;
     margin-top:-1px;
-    font-size: 10px;
+    font-size: 0.625em;
 }
 
 .loadMore {
@@ -246,7 +255,7 @@ i {
 }
 
 .loadMore button{
-    font-size: 10px;
+    font-size: 0.625em;
     background: #042a63;
     border-radius: 3px;
     color: white;
@@ -258,7 +267,7 @@ i {
 p[class^="headline"]{
     font-family: 'Merriweather', serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1em;
     color: whitesmoke;
     position: absolute;
     bottom: 0;
@@ -269,19 +278,19 @@ p[class^="headline"] a{
     color:yellow;
     text-decoration: underline;
     margin-left: 3px;
-    font-size: 12px;
+    font-size: 0.750em;
 }
 
 .displaySlider [class^=slider] p[class^="text"] {
     margin-left: 4px;
-    font-size: 12px;
+    font-size: 0.750em;
     color: yellow;
     font-weight: bold;
 }
 
 [class^=flash] {
     font-family: 'Merriweather', serif;
-    font-size: 10px;
+    font-size: 0.8em;
     cursor: pointer;
 }
 
@@ -294,7 +303,7 @@ p[class^="headline"] a{
     top: 5vh;
     bottom: 5vh;
     right: 5vw;
-    background-color: black;
+    background-color: #2690d4;
     color: whitesmoke;
     box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
     overflow: auto;
@@ -305,7 +314,7 @@ p[class^="headline"] a{
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 25px;
+    font-size: 1.563em;
     font-weight: bold;
   }
   
@@ -319,11 +328,13 @@ p[class^="headline"] a{
 .modal-open{
     overflow: hidden;
 }
+
 .modalTitle {
     color: white;
-    font-size: 30px;
+    font-size: 1.563em;
     margin-bottom: 20px;
     text-align: center;
+    font-family: 'Aref Ruqaa', serif;
 }
 
 .modalContainer {
@@ -343,21 +354,19 @@ p[class^="headline"] a{
     max-width: 600px;
     height: auto;
     max-height: 350px;
+    border-radius: 5px;
 }
 
-.modalAuthor {
+.modalAuthor,.modalDate {
     display: block;
     text-align: center;
-}
-
-.modalDate {
-    display: block;
-    text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
 .modalContent {
     text-align: center;
     margin-top: 20px;
+    font-family: 'Merriweather', serif;
 }
 
 .modalLink {
@@ -387,4 +396,8 @@ p[class^="headline"] a{
         bottom:0;
         z-index:1;
         background: transparent;
+}
+
+.mobile {
+    display: none;
 }
