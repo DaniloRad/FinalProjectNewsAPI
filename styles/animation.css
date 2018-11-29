@@ -17,6 +17,10 @@
         animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 }
 
+.displaySlider {
+    animation-duration: 1.4s;
+}
+
 
 @keyframes unfoldIn {
     0% {
