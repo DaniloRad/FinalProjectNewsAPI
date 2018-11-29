@@ -140,7 +140,7 @@ a{
 
 .filters {
     width: 80%;
-    height: 10%;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -213,7 +213,7 @@ a{
 }
 
 .info {
-    margin-left: 5%;
+    margin-left: 3%;
 }
 
 .info p {
