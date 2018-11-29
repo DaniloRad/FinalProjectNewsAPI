@@ -1,19 +1,4 @@
-/*Handling bounce which is triggered by scrolling. Without this function
- onScroll function would be called much more times than we need */ 
-/*function debounce(func, wait = 20, immediate = true) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};*/
+
 const ourMission = document.getElementById('our-mission');
 const sectionB1 = document.getElementById('section-b1');
 const sectionB2 = document.getElementById('gri');
@@ -51,6 +36,18 @@ function checkSlide(e){
 }
 
 window.addEventListener('scroll', (checkSlide));
+
+
+
+function $(selector){
+    return document.querySelector(selector);
+}
+
+$(".menu").addEventListener("click", function(){
+    $(".menu").classList.toggle("change");
+    $(".mobile").classList.toggle("active");
+});
+
 
 
 

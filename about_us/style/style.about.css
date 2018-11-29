@@ -74,6 +74,7 @@ p {
   background: #eaeaea;
   color: #333;
   padding-bottom: 2em;
+  
 }
 
 /* Section b*/
@@ -174,5 +175,159 @@ p {
     .img-be-informed{
       padding-top: 2em;
       padding-left: 3em;
+    }
+}
+
+header{
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  padding-bottom: 2px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  border-bottom: 1px solid darkblue;
+  background: darkgrey;
+  z-index: 1;
+}
+
+footer{
+  display: grid;
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid darkblue;
+  background: darkgray;
+  margin-top: 10px;
+}
+
+header img{
+  width: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img{
+  height: 40px;
+  width: 60px;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country span {
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+header a{
+  text-decoration: none;
+}
+
+.mobile {
+  display: none;
+}
+
+header nav, footer nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav a , footer nav a{
+  color: darkblue;
+  margin: 0 20px;
+}
+
+.dropdown-items {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-items {
+  display: block;
+}
+
+.dropdown-items a {
+  color: white;
+  background: #333;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	#desktop, .country {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    .logo {
+        justify-content: left;
+    }
+    
+    .mobile {
+        margin-top: 43px;
+        height: auto;
+        background: darkgray;
+        margin-bottom: -40px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    .mobile a {
+        color: darkblue;
+        text-align: center;
+        display: block;
+        border-bottom: solid 1px darkblue;
+    }
+
+    .menu {
+        align-content: right;
+        justify-content: right;
+        cursor: pointer;
+        margin-left: 50%;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: darkblue;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    
+    .change .bar2 {opacity: 0;}
+    
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
     }
 }
