@@ -31,7 +31,7 @@ footer{
     position: relative;
     bottom: 0px;
     width: 100%;
-    border-top: 1px solid burlywood;
+    border-top: 1px solid darkblue;
     background: darkgray;
 }
 
@@ -60,6 +60,7 @@ header img{
     margin-right: 3px;
     cursor: pointer;
 }
+
 a{
     color: white;
     text-decoration: none;
@@ -76,29 +77,8 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
-    color: darkblue;
-    margin: 0 20px;
-}
-
-.dropdown-items {
-    display: none;
-    position: absolute;
-    min-width: 100px;
-    z-index: 1;
-
-}
-
-.dropdown:hover .dropdown-items {
-    display: block;
-}
-
-.dropdown-items a {
     color: white;
-    background: #333;
-    padding: 10px 0;
-    text-decoration: none;
-    display: block;
-    
+    margin: 0 20px;
 }
 
 .container {
