@@ -15,11 +15,13 @@ function getJSON(response) {
     return response.json();
 }
 
+
+
 const headline = [], topRatedNews = [], flash = [];
 let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=fr&pageSize=100&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=everything&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
-let topNews = "https://newsapi.org/v2/everything?sources=al-jazzera-english&pageSize=48&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=flash&language=it&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
+let topNews = "https://newsapi.org/v2/everything?sources=ansa&pageSize=48&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
 function getHeadlinesData(data,i,br){
@@ -44,8 +46,8 @@ function getTopNewsData(data,i){
     }
 }
 
-function getFlashData(data,i){
-    flash[i] = {
+function getFlashData(data,i,br){
+    flash[br] = {
     title: data.articles[i].title,
     img: data.articles[i].urlToImage,
     author: data.articles[i].author,
@@ -81,11 +83,20 @@ function getHeadlines(data){
 }
 
 function getFlashNews(data){
-    for(let i = 0; i < 3; i++){
-        getFlashData(data,i);
-        $(`.flash${i+1}`).innerHTML = `<img class="img img${i+1}" src="${data.articles[i].urlToImage}">${data.articles[i].title}`;
-        $(`.flash${i+1}`).title = ``;
+    let i = 0, br = 0;
+    while (br < 6){
+        if (data.articles[i].title !== null &&
+            data.articles[i].urlToImage !== null){
+        getFlashData(data,i,br);
+        $(`.flash${br+1}`).innerHTML = `<img class="img img${i+1}" src="${data.articles[i].urlToImage}">${data.articles[i].title}`;
+        $(`.flash${br+1}`).title = ``;
+        br++;
+    i++;
     }
+    else{
+        i++;
+    }
+}
 }
 
 function getTopNews(data){

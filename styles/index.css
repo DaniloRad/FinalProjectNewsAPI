@@ -20,7 +20,7 @@ header{
     position: fixed;
     top: 0px;
     width: 80%;
-    border-bottom: 1px solid burlywood;
+    border-bottom: 1px solid darkblue;
     background: darkgrey;
     z-index: 1;
 }
@@ -63,6 +63,10 @@ header img{
 a{
     color: white;
     text-decoration: none;
+}
+
+.mobile {
+    display: none;
 }
 
 header nav, footer nav {
@@ -188,7 +192,7 @@ header nav a , footer nav a{
     word-wrap: break-word;
     width: 100%;
     max-width: 230px;
-    font-size: 0.750em;
+    font-size: 0.7em;
 }
 
 h2{
@@ -331,7 +335,7 @@ p[class^="headline"] a{
 
 .modalTitle {
     color: white;
-    font-size: 1.563em;
+    font-size: 1.2em;
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Aref Ruqaa', serif;
@@ -358,12 +362,14 @@ p[class^="headline"] a{
 }
 
 .modalAuthor,.modalDate {
+    font-size: 0.8em;
     display: block;
     text-align: center;
     font-family: 'Merriweather', serif;
 }
 
 .modalContent {
+    font-size: 0.9em;
     text-align: center;
     margin-top: 20px;
     font-family: 'Merriweather', serif;
@@ -398,6 +404,3 @@ p[class^="headline"] a{
         background: transparent;
 }
 
-.mobile {
-    display: none;
-}

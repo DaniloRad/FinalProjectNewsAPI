@@ -12,8 +12,6 @@
         justify-content: left;
     }
     
-
-
     .mobile {
         margin-top: 43px;
         height: auto;
@@ -29,6 +27,7 @@
         color: darkblue;
         text-align: center;
         display: block;
+        border-bottom: solid 1px darkblue;
     }
 
     .menu {
