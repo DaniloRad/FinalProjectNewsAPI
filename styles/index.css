@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper{
-    background: whitesmoke;
+    background: lightgray;
 }
 
 header{
@@ -20,7 +20,7 @@ header{
     position: fixed;
     top: 0px;
     width: 80%;
-    border-bottom: 1px solid burlywood;
+    border-bottom: 1px solid darkblue;
     background: darkgrey;
     z-index: 1;
 }
@@ -28,10 +28,10 @@ header{
 footer{
     display: grid;
     height: 30px;
-    position: fixed;
+    position: relative;
     bottom: 0px;
-    width: 80%;
-    border-top: 1px solid burlywood;
+    width: 100%;
+    border-top: 1px solid darkblue;
     background: darkgray;
 }
 
@@ -60,9 +60,14 @@ header img{
     margin-right: 3px;
     cursor: pointer;
 }
+
 a{
     color: white;
     text-decoration: none;
+}
+
+.mobile {
+    display: none;
 }
 
 header nav, footer nav {
@@ -72,29 +77,8 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
-    color: darkblue;
-    margin: 0 20px;
-}
-
-.dropdown-items {
-    display: none;
-    position: absolute;
-    min-width: 100px;
-    z-index: 1;
-
-}
-
-.dropdown:hover .dropdown-items {
-    display: block;
-}
-
-.dropdown-items a {
     color: white;
-    background: #333;
-    padding: 10px 0;
-    text-decoration: none;
-    display: block;
-    
+    margin: 0 20px;
 }
 
 .container {
@@ -188,7 +172,7 @@ header nav a , footer nav a{
     word-wrap: break-word;
     width: 100%;
     max-width: 230px;
-    font-size: 0.750em;
+    font-size: 0.7em;
 }
 
 h2{
@@ -233,8 +217,6 @@ i{
 .topRatedContainer img:hover {
     box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
 }
-
-
 
 .topRatedContainer {
     display: grid;
@@ -317,7 +299,7 @@ p[class^="headline"] a{
     font-size: 1.563em;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #999;
@@ -331,7 +313,7 @@ p[class^="headline"] a{
 
 .modalTitle {
     color: white;
-    font-size: 1.563em;
+    font-size: 1.2em;
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Aref Ruqaa', serif;
@@ -358,12 +340,14 @@ p[class^="headline"] a{
 }
 
 .modalAuthor,.modalDate {
+    font-size: 0.8em;
     display: block;
     text-align: center;
     font-family: 'Merriweather', serif;
 }
 
 .modalContent {
+    font-size: 0.9em;
     text-align: center;
     margin-top: 20px;
     font-family: 'Merriweather', serif;
@@ -398,6 +382,3 @@ p[class^="headline"] a{
         background: transparent;
 }
 
-.mobile {
-    display: none;
-}
