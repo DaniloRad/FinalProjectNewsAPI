@@ -173,6 +173,11 @@
         padding-bottom: 8%;
       }
       .news-feed{
-        font-size: 2.5em;
+        font-size: em;
     }
+}
+@media (min-width: 1025px){
+.flex-desktop{
+  display: flex;
+}
 }
