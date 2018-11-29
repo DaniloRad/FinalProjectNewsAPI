@@ -15,7 +15,7 @@
         <header>
             <div class="logo"><img src="../images/NewsAPI.png" alt=""></div>
     
-            <nav>
+            <nav id="desktop">
                 <a href="../index.html">Home</a>
                 <div class="dropdown">
                     <a href="list.html">List</a>
@@ -25,22 +25,30 @@
                         <a href="#" class="science">Science</a>
                     </div>
                 </div>
-                <a href="#">Custom Page</a>
-                <a href="#">About Us</a>
-                <div class="dropdown">
-                        <a href="#">Categories</a>
-                        <div class="dropdown-items">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
-                        </div>
-                        </div>
+                <a href="../Custom/index.custom.html">Publishers</a>
+                <a href="../about_us/about_us.html">About Us</a>
             </nav>
     
-            <div class="avatar">
-                <img src="https://pickaface.net/gallery/avatar/unr_pickaface_170126_2034_9qo06r.png" alt="">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
         </header>
+
+        <nav class="mobile">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="list.html">List</a>
+                <div class="dropdown-items">
+                    <a href="#" class="sport">Sport</a>
+                    <a href="#" class="technology">Technology</a>
+                    <a href="#" class="science">Science</a>
+                </div>
+            </div>
+            <a href="../Custom/index.custom.html">Publishers</a>
+            <a href="../about_us/about_us.html">About Us</a>
+        </nav>
 
         <div class="container">
             <div class="search">
@@ -50,9 +58,9 @@
 
             <div class="filters">
                 <div class="radio-btn-div">
-                    <input type="radio" name="radio-filter" value="title" checked> Title
-                    <input type="radio" name="radio-filter" value="author"> Author
-                    <input type="radio" name="radio-filter" value="content"> Content
+                    <input type="radio" name="radio-filter" value="title" class="title-btn" checked> Title
+                    <input type="radio" name="radio-filter" value="author" class="author-btn"> Author
+                    <input type="radio" name="radio-filter" value="content" class="date-btn"> Date
                 </div>
 
                 <div class="range-div">
@@ -82,10 +90,10 @@
                         </div>
 
                         <div class="news">
-                            <div class="img2">
+                            <div class="img5">
                                 
                             </div>
-                            <div class="info info2">
+                            <div class="info info5">
                                 
                             </div>
                         </div>
@@ -93,19 +101,19 @@
 
                     <div class="col column-two">
                         <div class="news">
-                            <div class="img4">
+                            <div class="img2">
                                 
                             </div>
-                            <div class="info info4">
+                            <div class="info info2">
                                 
                             </div>
                         </div>
 
                         <div class="news">
-                            <div class="img5">
+                            <div class="img4">
                                 
                             </div>
-                            <div class="info info5">
+                            <div class="info info4">
                                 
                             </div>
                         </div>
@@ -128,9 +136,8 @@
 
         <footer>
             <nav>
-                <a href="#">Home</a>
-                <a href="list.html">List</a>
-                <a href="#">About Us</a>
+                <a href="../index.html">Home</a>
+                <a href="../about_us/about_us.html">About Us</a>
                 <a href="#">Contact Us</a>
             </nav>
         </footer>
@@ -138,6 +145,5 @@
     </div>
 
     <script src="src/list.js"></script>
-
 </body>
 </html>
