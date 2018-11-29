@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper{
-    background: whitesmoke;
+    background: lightgray;
 }
 
 header{
@@ -28,9 +28,9 @@ header{
 footer{
     display: grid;
     height: 30px;
-    position: fixed;
+    position: relative;
     bottom: 0px;
-    width: 80%;
+    width: 100%;
     border-top: 1px solid burlywood;
     background: darkgray;
 }
@@ -238,8 +238,6 @@ i{
     box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
 }
 
-
-
 .topRatedContainer {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -321,7 +319,7 @@ p[class^="headline"] a{
     font-size: 1.563em;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #999;

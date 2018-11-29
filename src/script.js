@@ -19,9 +19,9 @@ function getJSON(response) {
 
 const headline = [], topRatedNews = [], flash = [];
 let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
-let headlineNews = "https://newsapi.org/v2/top-headlines?country=it&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533";
-let flashNews = "https://newsapi.org/v2/everything?q=flash&language=it&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
-let topNews = "https://newsapi.org/v2/everything?sources=ansa&pageSize=48&sortBy=popularity&apiKey=61f183b6efeb48cdab07b405197cd533";
+let headlineNews = "https://newsapi.org/v2/top-headlines?country=gb&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533";
+let flashNews = "https://newsapi.org/v2/everything?q=sport&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
+let topNews = "https://newsapi.org/v2/everything?sources=the-guardian-uk&pageSize=48&sortBy=publishedAt&apiKey=61f183b6efeb48cdab07b405197cd533";
 
 
 function getHeadlinesData(data,i,br){
@@ -30,7 +30,7 @@ function getHeadlinesData(data,i,br){
     img: data.articles[i].urlToImage,
     author: data.articles[i].author,
     content: data.articles[i].content,
-    date: data.articles[i].publishedAt.split("T")[0] ,
+    date: data.articles[i].publishedAt.split("T")[0],
     link: data.articles[i].url
     }
 }
@@ -41,7 +41,7 @@ function getTopNewsData(data,i){
     img: data.articles[i].urlToImage,
     author: data.articles[i].author,
     content: data.articles[i].content,
-    date: data.articles[i].publishedAt.split("T")[0] ,
+    date: data.articles[i].publishedAt.split("T")[0],
     link: data.articles[i].url
     }
 }
@@ -52,7 +52,7 @@ function getFlashData(data,i,br){
     img: data.articles[i].urlToImage,
     author: data.articles[i].author,
     content: data.articles[i].content,
-    date: data.articles[i].publishedAt.split("T")[0] ,
+    date: data.articles[i].publishedAt.split("T")[0],
     link: data.articles[i].url
     }
 }
@@ -184,7 +184,6 @@ fetch(headlineNews)
     .then(checkStatus)
     .then(getJSON)
     .then(function (data) {
-        console.log(data);
         getHeadlines(data);
     })
     .catch(function (err) {
