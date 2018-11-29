@@ -1,0 +1,365 @@
+.grid-mobile {
+  display: grid;
+  width: 98%;
+  background-color: #333;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
+  padding-top: 1%;
+  padding-left: 1.5%;
+  padding-right: 1%;
+  grid-gap: 2px;
+}
+.grid-mobile img {
+  width: 64px;
+  height: 32px;
+  cursor: pointer;
+}
+.title-position {
+  padding-top: 10%;
+  padding-left: 30%;
+  padding-bottom: 10%;
+}
+.news-title-position {
+  font-size: 180%;
+  text-align: center;
+}
+.img-main {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.news-feed {
+  padding-left: 10%;
+  width: 80%;
+  padding-right: 10%;
+  text-align: cente;
+}
+
+/*Responsiveness for all mobile devices*/
+@media (min-width: 411px) {
+  .grid-mobile {
+    display: grid;
+    width: 97%;
+    background-color: #333;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-radius: 5px;
+    padding-top: 1%;
+    padding-left: 2.2%;
+    padding-right: 0%;
+    grid-gap: 2px;
+  }
+}
+
+@media (min-width: 320px) {
+  .grid-mobile {
+    display: grid;
+    width: 97%;
+    background-color: #333;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-radius: 5px;
+    padding-top: 1%;
+    padding-left: 2.5%;
+    padding-right: 0%;
+    grid-gap: 2px;
+  }
+  .grid-mobile img {
+    width: 48px;
+    height: 27px;
+  }
+  .title-position {
+    padding-top: 10%;
+    padding-left: 25%;
+    padding-bottom: 10%;
+  }
+
+  .news-title-position {
+    font-size: 160%;
+    text-align: center;
+  }
+
+}
+
+  @media (min-width: 375px) {
+    .grid-mobile {
+      display: grid;
+      width: 98%;
+      background-color: #333;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      border-radius: 5px;
+      padding-top: 1%;
+      padding-left: 1%;
+      padding-right: 0%;
+      grid-gap: 1px;
+    }
+
+    .grid-mobile img {
+      width: 64px;
+      height: 32px;
+    }
+
+    .img-main {
+      border: solid 1px darkblue;
+      border-radius: 5px;
+    }
+
+    .news-feed{
+      text-align: center;
+    }
+
+    .news-feed a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .news-feed a:hover {
+      color: darkblue;
+    }
+
+    .news-date {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    [class^="feed"]{
+      margin-top: 10px;
+    }
+
+    footer {
+      font-size: 14px;
+    }
+  }
+
+@media (min-width: 411px){
+    .grid-mobile {
+        display: grid;
+        width: 97%;
+        background-color: #333;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        border-radius: 5px;
+        padding-top: 1%;
+        padding-left: 2.7%;
+        padding-right: 0%;
+        grid-gap: 1px;
+      }
+      .news-title-position {
+        font-size: 180%;
+        text-align: center;
+      }
+      .title-position {
+        padding-top: 10%;
+        padding-left: 30%;
+        padding-bottom: 10%;
+      }
+}
+
+@media (min-width: 768px){
+    .title-position {
+        font-size:2em;
+      }
+      .grid-mobile img {
+        width: 144px;
+        height: 81px;
+      }
+      .grid-mobile {
+        display: grid;
+        width: 99%;
+        padding-top: 0.5%;
+        padding-left: 0.5%;
+        padding-right: 0%;
+        grid-gap: 1px;
+      }
+      .news-title-position {
+        font-size: 310%;
+        text-align: center;
+      }
+      .news-feed{
+          font-size: 2em;
+      }
+}
+
+@media (min-width: 1024px){
+    .title-position {
+        font-size: 250%;
+        padding-top: 10%;
+        padding-left: 30%;
+        padding-bottom: 10%;
+      }
+
+      .grid-mobile img {
+        width: 176px;
+        height: 99px;
+      }
+
+      .grid-mobile {
+        width: 97%;
+        padding-top: 1%;
+        padding-left: 2%;
+        padding-right: 0%;
+        padding-bottom: 1%;
+        grid-gap: 1px;
+        
+      }
+
+      .news-title-position {
+        font-size: 420%;
+        text-align: center;
+      }
+
+      .news-feed{
+        font-size: 2.5em;
+      }
+}
+
+header{
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  padding-bottom: 2px;
+  position: fixed;
+  top: 0px;
+  width: 80%;
+  border-bottom: 1px solid darkblue;
+  background: darkgrey;
+  z-index: 1;
+}
+
+footer{
+  display: grid;
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid darkblue;
+  background: darkgray;
+  margin-top: 10px;
+}
+
+header img{
+  width: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img{
+  height: 40px;
+  width: 60px;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country span {
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+header a{
+  text-decoration: none;
+}
+
+.mobile {
+  display: none;
+}
+
+header nav, footer nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav a , footer nav a{
+  color: darkblue;
+  margin: 0 20px;
+}
+
+.dropdown-items {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-items {
+  display: block;
+}
+
+.dropdown-items a {
+  color: white;
+  background: #333;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 16px;
+  width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+	#desktop, .country {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    .logo {
+        justify-content: left;
+    }
+    
+    .mobile {
+        margin-top: 43px;
+        height: auto;
+        background: darkgray;
+        margin-bottom: -40px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    .mobile a {
+        color: darkblue;
+        text-align: center;
+        display: block;
+        border-bottom: solid 1px darkblue;
+    }
+
+    .menu {
+        align-content: right;
+        justify-content: right;
+        cursor: pointer;
+        margin-left: 50%;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: darkblue;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    
+    .change .bar2 {opacity: 0;}
+    
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+}
