@@ -229,4 +229,9 @@ $class("pages-inner")[0].addEventListener("click", function() {
     console.log(checkUrl)
 });
 
+$class("menu")[0].addEventListener("click", function(){
+    $class("menu")[0].classList.toggle("change");
+    $class("mobile")[0].classList.toggle("active");
+});
+
 firstFetch();
