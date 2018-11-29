@@ -199,6 +199,10 @@ footer{
   margin-top: 10px;
 }
 
+footer a {
+  text-decoration: none;
+}
+
 header img{
   width: 60px;
 }
@@ -240,7 +244,7 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
-  color: darkblue;
+  color: white;
   margin: 0 20px;
 }
 
@@ -298,10 +302,10 @@ body {
     }
 
     .mobile a {
-        color: darkblue;
+        color: white;
         text-align: center;
         display: block;
-        border-bottom: solid 1px darkblue;
+        border-bottom: solid 1px white;
     }
 
     .menu {

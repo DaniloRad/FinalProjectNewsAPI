@@ -112,7 +112,7 @@
     }
 
     .news-feed a:hover {
-      color: darkblue;
+      color: white;
     }
 
     .news-date {
@@ -181,7 +181,7 @@
     .title-position {
         font-size: 250%;
         padding-top: 10%;
-        padding-left: 30%;
+        padding-left: 22%;
         padding-bottom: 10%;
       }
 
@@ -191,12 +191,12 @@
       }
 
       .grid-mobile {
-        width: 97%;
+        width: 96%;
         padding-top: 1%;
-        padding-left: 2%;
+        padding-left: 3.5%;
         padding-right: 0%;
         padding-bottom: 1%;
-        grid-gap: 1px;
+        grid-gap: 5px;
         
       }
 
@@ -207,6 +207,15 @@
 
       .news-feed{
         font-size: 2.5em;
+      }
+      .img-main{
+        
+        width: 640px;
+        height: 360px;
+      }
+      
+      [class^="feed"]{
+        text-align: center;
       }
 }
 
@@ -226,9 +235,14 @@ footer{
   display: grid;
   height: 30px;
   width: 100%;
-  border-top: 1px solid darkblue;
+  border-top: 1px solid white;
   background: darkgray;
   margin-top: 10px;
+  border-top: 1px solid darkblue;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 header img{
@@ -272,7 +286,7 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
-  color: darkblue;
+  color: white;
   margin: 0 20px;
 }
 
@@ -330,7 +344,7 @@ body {
     }
 
     .mobile a {
-        color: darkblue;
+        color: white;
         text-align: center;
         display: block;
         border-bottom: solid 1px darkblue;
