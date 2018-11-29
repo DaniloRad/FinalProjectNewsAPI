@@ -11,149 +11,133 @@
     <title>News API</title>
 </head>
 <body>
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
     <div class="wrapper">
         <header>
-                <div class="logo"><img src="images/NewsAPI.png" alt=""></div>
+            <div class="logo"><img src="../images/NewsAPI.png" alt=""></div>
     
-                <nav>
-                    <a href="../index.html">Home</a>
-                    <div class="dropdown">
-                        <a href="list.html">List</a>
-                        <div class="dropdown-items">
-                            <a href="#">Category 1</a>
-                            <a href="#">Category 2</a>
-                            <a href="#">Category 3</a>
-                        </div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <div class="dropdown">
+                    <a href="list.html">List</a>
+                    <div class="dropdown-items">
+                        <a href="#" class="sport">Sport</a>
+                        <a href="#" class="technology">Technology</a>
+                        <a href="#" class="science">Science</a>
                     </div>
-                    <a href="#">Custom Page</a>
-                    <a href="#">About Us</a>
-                    <div class="dropdown">
-                            <a href="#">Categories</a>
-                            <div class="dropdown-items">
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                            </div>
-                          </div>
-                </nav>
-    
-                <div class="avatar">
-                    <img src="https://pickaface.net/gallery/avatar/unr_pickaface_170126_2034_9qo06r.png" alt="">
                 </div>
+                <a href="#">Custom Page</a>
+                <a href="#">About Us</a>
+                <div class="dropdown">
+                        <a href="#">Categories</a>
+                        <div class="dropdown-items">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                        </div>
+                        </div>
+            </nav>
+    
+            <div class="avatar">
+                <img src="https://pickaface.net/gallery/avatar/unr_pickaface_170126_2034_9qo06r.png" alt="">
+            </div>
         </header>
 
         <div class="container">
-                    <div class="slider">
-                        <h2>Headlines</h2>
-                        <div class="displaySlider">
-                                <div class="slider1">
-                                    <p class="headline1"></p>
-                                    <p class="textHeadline1"></p>
-                                </div>
-                                <div class="slider2">
-                                    <p class="headline2"></p>
-                                    <p class="textHeadline2"></p>
-                                </div>
-                                <div class="slider3">
-                                    <p class="headline3"></p>
-                                    <p class="textHeadline3"></p>
-                                </div>
-                                <div class="slider4">
-                                    <p class="headline4"></p>
-                                    <p class="textHeadline4"></p>
-                                </div>
-                                <div class="slider5">
-                                    <p class="headline5"></p>
-                                    <p class="textHeadline5"></p>
-                                </div>
-                                <div class="slider6">
-                                    <p class="headline6"></p>
-                                    <p class="textHeadline6"></p>
-                                </div>
-                                <div class="slider7">
-                                    <p class="headline7"></p>
-                                    <p class="textHeadline7"></p>
-                                </div>
-                                <div class="slider8">
-                                    <p class="headline8"></p>
-                                    <p class="textHeadline8"></p>
-                                </div>
-                                <div class="slider9">
-                                    <p class="headline9"></p>
-                                    <p class="textHeadline9"></p>
-                                </div>
+            <div class="search">
+                <input type="text" placeholder="Type here..." class="search-bar">
+                <input type="submit" value="Search" class="submit">
+            </div>
+
+            <div class="filters">
+                <div class="radio-btn-div">
+                    <input type="radio" name="radio-filter" value="title" checked> Title
+                    <input type="radio" name="radio-filter" value="author"> Author
+                    <input type="radio" name="radio-filter" value="content"> Content
+                </div>
+
+                <div class="range-div">
+                    1 <input type="range" min="1" max="10" value="1" step="1"> 10
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="columns">
+                    <div class="col column-one">
+                        <div class="news">
+                            <div class="img1">
+                                
+                            </div>
+                            <div class="info info1">
+                                
+                            </div>
                         </div>
 
-                        <div class="arrows"><span><i class="fas fa-angle-left"></i></span>
-                            <span><i class="fas fa-angle-right"></i></span></div>
-                        
-                    </div>
-
-                    <div class="topRated">
-                        <h2>Top Rated</h2>
-                        <div class="topRatedContainer">
+                        <div class="news">
+                            <div class="img3">
+                                
+                            </div>
+                            <div class="info info3">
+                                
+                            </div>
                         </div>
 
-                        <div class="loadMore"><button class="btn-loadMore">Load more</button></div>
-                    </div>
-        
-                    <div class="best">
-                        <div class="bestContainer">
-                            <h3>Flash News</h3>
-                            <div class="flash1"></div>
-                            <div class="flash2"></div>
-                            <div class="flash3"></div>
+                        <div class="news">
+                            <div class="img2">
+                                
+                            </div>
+                            <div class="info info2">
+                                
+                            </div>
                         </div>
                     </div>
-        
-                    <div class="fbFeed"><div class="fb-page" data-href="https://www.facebook.com/facebook" 
-                        data-width="250" data-small-header="false" data-adapt-container-width="false" 
-                        data-hide-cover="false" data-show-facepile="false"><blockquote 
-                        cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-                        <a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+
+                    <div class="col column-two">
+                        <div class="news">
+                            <div class="img4">
+                                
+                            </div>
+                            <div class="info info4">
+                                
+                            </div>
                         </div>
+
+                        <div class="news">
+                            <div class="img5">
+                                
+                            </div>
+                            <div class="info info5">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pages">
+                    <div class="pages-inner">
+                        <div class="pagination prev">Prev</div>
+                        <div class="pagination one">1</div>
+                        <div class="pagination two">2</div>
+                        <div class="pagination three">3</div>
+                        <div class="pagination fourth">4</div>
+                        <div class="pagination fifth">5</div>
+                        <div class="pagination next">Next</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
-                <nav>
-                    <a href="#">Home</a>
-                    <a href="#">List</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Contact Us</a>
-                </nav>
-            </footer>
+            <nav>
+                <a href="#">Home</a>
+                <a href="list.html">List</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </footer>
 
-        </div>
-<<<<<<< HEAD:list_folder/index.html
+    </div>
 
-        <div id="in" class="modal modal-in">
-            <span class="close cursor">&times;</span>
-            <div class="modalContainer">
-                    <div class="modalTitle"></div>
-                    <div class="modalImage">
-                        <img class="modalImg" src="images/slider1.jpg" alt="" width="600px" height="300px">
-                        <span class="modalAuthor"><span class="modalDate"></span></span>
-                    </div>
-                    <div class="modalContent">
-                    </div>
-                    <div class="modalLink">
-                       <a href="" target="_blank">Click Here for More</a> 
-                    </div>
-            </div>
-            </div>
+    <script src="src/list.js"></script>
 
-    <script src="src/script.js"></script>
-=======
-    <script src="list.js"></script>
->>>>>>> luka_branch:list_folder/list.html
 </body>
 </html>
