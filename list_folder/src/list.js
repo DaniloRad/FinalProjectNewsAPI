@@ -100,8 +100,8 @@ function filter() {
             checkUrl = "date";
         }
     }
-    console.log(tempData);
     if(tempData.length === 0) {
+        alert("Nema rezultata za unijeti izraz!");
         return;
     }
     tempToWhole();
@@ -226,7 +226,6 @@ $class("pages-inner")[0].addEventListener("click", function() {
     } else {
         setFilterArr();
     }
-    console.log(checkUrl)
 });
 
 $class("menu")[0].addEventListener("click", function(){

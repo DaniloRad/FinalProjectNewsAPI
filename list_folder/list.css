@@ -139,7 +139,9 @@ a{
 
 .filters {
     width: 80%;
-    height: 10vh;
+    height: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -192,7 +194,7 @@ a{
 }
 
 .column-one {
-    margin-right: 10%;
+    margin-right: 5%;
 }
 
 .pages {
@@ -223,6 +225,10 @@ a{
     margin-bottom: 3%;
 }
 
+.pages-inner {
+    margin-left: 30px;
+}
+
 .pagination {
     width: 14.28%;
     height: 100%;
@@ -239,6 +245,61 @@ a{
 
 .mobile {
     display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .column-one {
+        margin-right: 10%;
+    }
+    
+    .col > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 300px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .column-one {
+        margin-right: 8%;
+    }
+    
+    .filters {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .filters > div:first-child {
+        margin-left: 0;
+        margin-bottom: 3%;
+    }
+    
+    .filters > div:last-child {
+        margin-right: 0;
+    }
+
+    .main-content img {
+        width: 250px;
+        height: 170px;
+    }
+
+    .info {
+        width: 250px;
+        height: 150px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -298,5 +359,26 @@ a{
     .change .bar3 {
         -webkit-transform: rotate(45deg) translate(-8px, -8px);
         transform: rotate(45deg) translate(-8px, -8px);
+    }
+
+    .columns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .column-one {
+        margin-right: 0;
+    }
+
+    .main-content img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .info {
+        width: 300px;
+        height: 150px;
     }
 }
