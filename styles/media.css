@@ -8,12 +8,16 @@
         grid-template-columns: 4fr 1fr;
     }
 
+    footer a {
+        font-size: 10px;
+    }
+
     .logo {
         justify-content: left;
     }
     
     .mobile {
-        margin-top: 43px;
+        margin-top: 46px;
         height: auto;
         background: darkgray;
         margin-bottom: -40px;
@@ -60,7 +64,7 @@
 
 @media (max-width: 700px) {
     body{
-        width: 95%;
+        width: 100%;
     }
 
     .fbFeed, .best {
@@ -97,11 +101,11 @@
     }
 
     footer {
-        width: 95%;
+        width: 100%;
     }
 
     header {
-        width: 95%;
+        width: 100%;
     }
 
     .displaySlider div{

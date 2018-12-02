@@ -57,7 +57,7 @@ header img{
 }
 
 .country span {
-    margin-right: 3px;
+    margin-right: 4px;
     cursor: pointer;
 }
 
@@ -77,8 +77,12 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
-    color: white;
+    color: #000080;
     margin: 0 20px;
+}
+
+header a:hover{
+    background: lightslategray;
 }
 
 .container {
@@ -145,6 +149,7 @@ header nav a , footer nav a{
 .fbFeed {
     grid-area: fbFeed;
 }
+
 
 .container a:hover{
     cursor: pointer;
@@ -285,9 +290,9 @@ p[class^="headline"] a{
     top: 5vh;
     bottom: 5vh;
     right: 5vw;
-    background-color: #2690d4;
-    color: whitesmoke;
-    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
+    background-color: #000040;
+    color: white;
+    box-shadow: 0px 0px 0px 15px rgba(0,0,0,0.4);
     overflow: auto;
 }
 
@@ -369,6 +374,7 @@ p[class^="headline"] a{
 
 .blocked{
         position:relative;
+        pointer-events: none;
 }
 
 .blocked:after{
