@@ -1,5 +1,23 @@
 (function newsApi(){
 
+    let countries = [
+        {state: "us",
+        source: "cnn"},
+        
+        {state: "it",
+        source: "la-repubblica"},
+        
+        {state: "de",
+        source: "die-zeit"},
+        
+        {state: "fr",
+        source: "liberation"},
+        
+        {state: "gb",
+        source: "the-guardian-uk"
+        }
+    ];
+
     function $(selector){
         return document.querySelector(selector);
     }
@@ -17,15 +35,12 @@
         return response.json();
     }
     
-    
-    
     const headline = [], topRatedNews = [], flash = [];
-    let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0;
-    let headlineNews = "https://newsapi.org/v2/top-headlines?country=gb&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533";
-    let flashNews = "https://newsapi.org/v2/everything?q=sport&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533";
-    let topNews = "https://newsapi.org/v2/everything?sources=the-guardian-uk&pageSize=48&sortBy=publishedAt&apiKey=61f183b6efeb48cdab07b405197cd533";
-    
-    
+    let counter = 0, loadMoreCounter = 7, output = "", counterMobile = 0, counterTwo = 0, csource = "cnn", abu;
+    let headlineNews = `https://newsapi.org/v2/top-headlines?sources=${csource}&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533`;
+    let flashNews = `https://newsapi.org/v2/everything?q=sport&sources=${csource}&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533`;
+    let topNews = `https://newsapi.org/v2/everything?sources=${csource}&pageSize=48&sortBy=publishedAt&apiKey=61f183b6efeb48cdab07b405197cd533`;
+
     function getHeadlinesData(data,i,br){
         headline[br] = {
         title: data.articles[i].title,
@@ -66,10 +81,7 @@
                 data.articles[i].urlToImage !== null){
                     getHeadlinesData(data,i,br);
         $(`.headline${br+1}`).innerHTML = `${data.articles[i].title} <a class="a a${br+1}">   Read more</a>`;
-        $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)
-          ), url(${data.articles[i].urlToImage})`;
+        $(`.slider${br+1}`).style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url(${data.articles[i].urlToImage})`;
         br++;
         i++;
         }
@@ -89,9 +101,8 @@
         while (br < 6){
             if (data.articles[i].title !== null &&
                 data.articles[i].urlToImage !== null){
-            getFlashData(data,i,br);
             $(`.flash${br+1}`).innerHTML = `<img class="img img${i+1}" src="${data.articles[i].urlToImage}">${data.articles[i].title}`;
-            $(`.flash${br+1}`).title = ``;
+            getFlashData(data,i,br);
             br++;
         i++;
         }
@@ -180,7 +191,7 @@
             $(".btn-loadMore").style.display = "none";
         }
     })
-    
+
     fetch(headlineNews)
         .then(checkStatus)
         .then(getJSON)
@@ -190,7 +201,6 @@
         .catch(function (err) {
             console.log("Error ", err);
         })
-    
     
     fetch(flashNews)
         .then(checkStatus)
@@ -207,7 +217,6 @@
         .then(getJSON)
         .then(function (data) {
             getTopNews(data);
-            console.log(data);
         })
         .catch(function (err) {
             console.log("Error ", err);
@@ -286,10 +295,14 @@
       $(".slider").addEventListener("mouseover", leftRight);
       $(".slider").addEventListener("mouseout", doNothing);
     
-    setInterval(function(){
+    function sliderInterval(){
+        abu = setInterval(function(){
             increaseCounter();
             arrows();
         }, 5000);
+    }
+
+    sliderInterval();
     
     
     
@@ -325,6 +338,7 @@
     })
     
     $(".topRatedContainer").addEventListener("click", function(event){
+        console.log(event.target);
         if (event.target.classList.contains("img")){
             let x = parseInt(event.target.parentNode.className.match(/\d+/g));
             getModalData(topRatedNews,x);
@@ -439,5 +453,47 @@
         $(".mobile").classList.toggle("active");
     });
     
+    $(".country").addEventListener("click", function(){
+        clearInterval(abu);
+        for (let i = 0; i < countries.length; i++){
+            if (event.target.classList.contains(countries[i].state)){
+                csource = countries[i].source;
+                headlineNews = `https://newsapi.org/v2/top-headlines?sources=${csource}&pageSize=100&apiKey=61f183b6efeb48cdab07b405197cd533`;
+                flashNews = `https://newsapi.org/v2/everything?q=sport&sources=${csource}&pageSize=88&apiKey=61f183b6efeb48cdab07b405197cd533`;
+                topNews = `https://newsapi.org/v2/everything?sources=${csource}&pageSize=48&sortBy=publishedAt&apiKey=61f183b6efeb48cdab07b405197cd533`;
+        
+        fetch(headlineNews)
+        .then(checkStatus)
+        .then(getJSON)
+        .then(function (data) {
+            getHeadlines(data);
+        })
+        .catch(function (err) {
+            console.log("Error ", err);
+        })
+    
+    
+    fetch(flashNews)
+        .then(checkStatus)
+        .then(getJSON)
+        .then(function (data) {
+            getFlashNews(data);
+        })
+        .catch(function (err) {
+            console.log("Error ", err);
+        })
+    
+    fetch(topNews)
+        .then(checkStatus)
+        .then(getJSON)
+        .then(function (data) {
+            getTopNews(data);
+        })
+        .catch(function (err) {
+            console.log("Error ", err);
+    })
+            }
+    }
+    });
 
 })();
