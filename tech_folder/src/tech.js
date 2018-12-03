@@ -29,7 +29,7 @@ let filterArr = new Array(100);
 let tempData = [];
 let filterWholeArr = [];
 let pageCounter = 1;
-let checkUrl = "general";
+let checkUrl = "technology";
 let imgCounter = 1;
 
 function fillNewsArr(data, br, i, counter) {
@@ -168,7 +168,7 @@ function fetchIt(url, pageCounter) {
 
 function firstFetch() {
     pageCounter = 1;
-    fetchIt(general, pageCounter);
+    fetchIt(technology, pageCounter);
     $class("prev")[0].style.visibility = "";
     $class("next")[0].style.visibility = "";
 }
@@ -202,8 +202,8 @@ function pages() {
 
 $class("pages-inner")[0].addEventListener("click", function() {
     pages();
-    if(checkUrl === "general") {
-        fetchIt(general, pageCounter)
+    if(checkUrl === "technology") {
+        fetchIt(technology, pageCounter)
     } else {
         setFilterArr();
     }
