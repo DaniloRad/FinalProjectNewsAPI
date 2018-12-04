@@ -1,237 +1,277 @@
 @media screen and (max-width: 600px) {
-	#desktop, .country {
-        display: none;
-    }
+  #desktop,
+  .country {
+    display: none;
+  }
 
-    header {
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-    }
+  header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+  }
 
-    .logo {
-        justify-content: left;
-    }
-    
-    .mobile {
-        margin-top: 43px;
-        height: auto;
-        background: darkgray;
-        margin-bottom: -40px;
-    }
+  footer nav a {
+    font-size: 10px;
+  }
 
-    .active {
-        display: block;
-    }
+  footer nav a:hover {
+    color: yellow;
+  }
 
-    .mobile a {
-        color: white;
-        text-align: center;
-        display: block;
-        border-bottom: solid 1px darkblue;
-    }
+  .logo {
+    justify-content: left;
+  }
 
-    .menu {
-        align-content: right;
-        justify-content: right;
-        cursor: pointer;
-        margin-left: 50%;
-    }
-    
-    .bar1, .bar2, .bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: darkblue;
-        margin: 6px 0;
-        transition: 0.4s;
-    }
-    
-    .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px);
-    }
-    
-    .change .bar2 {opacity: 0;}
-    
-    .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px);
-    }
+  .sliderActive {
+    margin-top: 80px;
+  }
+
+  .mobile {
+    position: fixed;
+    width: 100%;
+    margin-top: -3px;
+    height: auto;
+    background: green;
+    z-index: 1;
+  }
+
+  .active {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .mobile a {
+    color: white;
+    text-align: center;
+    display: block;
+    border-bottom: solid 1px darkblue;
+  }
+
+  .mobile a:hover {
+    color: yellow;
+  }
+
+  .menu {
+    justify-content: right;
+    cursor: pointer;
+    margin-left: 50%;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: darkblue;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  .dropdown:hover {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .dropdown:hover .dropdown-items {
+    margin-top: 20px;
+  }
+
+  .dropdown-items a {
+    padding: 0;
+  }
 }
 
 @media (max-width: 700px) {
-    body{
-        width: 95%;
-    }
+  body {
+    width: 100%;
+  }
 
-    .fbFeed, .best {
-        display: none;
-    }
-    .container {
-        display: grid;
-        width: 100%;
-        grid-gap: 5px;
-        grid-template-areas: 
-        "slider slider"
-        "topRated topRated";
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
+  .fbFeed,
+  .best {
+    display: none;
+  }
+  .container {
+    display: grid;
+    width: 100%;
+    grid-gap: 5px;
+    grid-template-areas:
+      "slider slider"
+      "topRated topRated";
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-    .topRatedContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        
-    }
+  .topRatedContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .topRatedContainer img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
+  .topRatedContainer img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
 
-    [class^=cellp] p {
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 9.6px;
-    }
+  [class^="cellp"] p {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 9.6px;
+  }
 
-    footer {
-        width: 95%;
-    }
+  footer {
+    width: 100%;
+  }
 
-    header {
-        width: 95%;
-    }
+  header {
+    width: 100%;
+  }
 
-    .displaySlider div{
-        height: 250px;
-        width: 96%;
-        border: solid 2px royalblue;
-        color: darkblue;
-    }
+  .displaySlider div {
+    height: 250px;
+    width: 96%;
+    border: solid 2px royalblue;
+    color: darkblue;
+  }
 
-    p[class^="headline"]{
-        text-align: center;
-        font-weight: 600;
-        font-size: 18px;
-        color: whitesmoke;
-    }
+  p[class^="headline"] {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: whitesmoke;
+  }
 
-    p[class^="headline"] a{
-        font-size: 14px;
-    }
+  p[class^="headline"] a {
+    font-size: 14px;
+  }
 
-    .modalTitle {
-        color: white;
-        font-size: 15px;
-        text-align: center;
-    }
+  .modalTitle {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+  }
 
-    .modalAuthor, .modalDate {
-        font-size: 10px;
-    }
-    
-    .modalContent {
-        font-size: 11px;
-        text-align: center;
-        margin-top: 20px;
-    }
+  .modalAuthor,
+  .modalDate {
+    font-size: 10px;
+  }
 
-    .modalLink {
-        margin-top: 10px;
-        text-align: center;
-        text-decoration: underline;
-    }
+  .modalContent {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .modalLink {
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+  }
 }
 
-@media (max-width: 800px) and (min-width: 701px){
-    .topRatedContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        
-    }
+@media (max-width: 800px) and (min-width: 701px) {
+  .topRatedContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .modalTitle {
-        color: white;
-        font-size: 16px;
-        text-align: center;
-    }
+  .modalTitle {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+  }
 
-    .modalAuthor, .modalDate {
-        font-size: 12px;
-    }
+  .modalAuthor,
+  .modalDate {
+    font-size: 12px;
+  }
 
-    .modalContent {
-        font-size: 12px;
-        text-align: center;
-        margin-top: 20px;
-    }
+  .modalContent {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+  }
 
-    .displaySlider div{
-        height: 250px;
-        width: 96%;
-        color: darkblue;
-    }
+  .displaySlider div {
+    height: 250px;
+    width: 96%;
+    color: darkblue;
+  }
 }
 
-@media (max-width: 1000px) and (min-width: 801px){
-    .topRatedContainer {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        
-    }
+@media (max-width: 1000px) and (min-width: 801px) {
+  .topRatedContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    .modalTitle {
-        color: white;
-        font-size: 22px;
-        text-align: center;
-    }
+  .modalTitle {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+  }
 
-    .modalAuthor, .modalDate {
-        font-size: 14px;
-    }
+  .modalAuthor,
+  .modalDate {
+    font-size: 14px;
+  }
 
-    .modalContent {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 20px;
-    }
+  .modalContent {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+  }
 
-    .displaySlider div{
-        height: 250px;
-        width: 96%;
-        border: solid 2px royalblue;
-        color: darkblue;
-    }
-
+  .displaySlider div {
+    height: 250px;
+    width: 96%;
+    border: solid 2px royalblue;
+    color: darkblue;
+  }
 }
 
-@media (max-width: 1200px) and (min-width: 1001px){
-    .displaySlider div{
-        height: 250px;
-        width: 46%;
-        color: darkblue;
-    }
+@media (max-width: 1200px) and (min-width: 1001px) {
+  .displaySlider div {
+    height: 250px;
+    width: 46%;
+    color: darkblue;
+  }
 
-    [class^=cellp] p {
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 9px;
-    }
+  [class^="cellp"] p {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 9px;
+  }
 
-    .modalTitle {
-        color: white;
-        font-size: 20px;
-        text-align: center;
-    }
-    .modalAuthor, .modalDate {
-        font-size: 12px;
-    }
+  .modalTitle {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+  .modalAuthor,
+  .modalDate {
+    font-size: 12px;
+  }
 
-    .modalContent {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 20px;
-    }
+  .modalContent {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+  }
 }
+
+
