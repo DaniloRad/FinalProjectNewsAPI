@@ -35,7 +35,6 @@
     }
 
     .menu {
-        align-content: right;
         justify-content: right;
         cursor: pointer;
         margin-left: 50%;

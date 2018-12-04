@@ -496,4 +496,30 @@
     }
     });
 
+    $(".displaySlider").addEventListener('touchstart', handleTouchStart, false);
+    $(".displaySlider").addEventListener('touchmove', handleTouchMove, false);
+    let xDown = null;
+
+    function handleTouchStart(event) {
+    xDown = event.touches[0].clientX;
+    }; 
+
+    function handleTouchMove(event) {
+    if ( ! xDown) {
+        return;
+    }
+    let xUp = event.touches[0].clientX;
+    let xDiff = xDown - xUp;
+
+        if ( xDiff > 0 ) {
+            reduceCounter();
+            arrows();
+        } else {
+            increaseCounter();
+            arrows();
+        }      
+
+    xDown = null;
+    };
+
 })();
