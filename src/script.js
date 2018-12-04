@@ -208,7 +208,7 @@
       getHeadlines(data);
     })
     .catch(function(err) {
-      alert("Error ", err);
+      return "error";
     });
 
   fetch(flashNews)
@@ -228,7 +228,7 @@
       getTopNews(data);
     })
     .catch(function(err) {
-      alert("Error ", err);
+      return "error";
     });
 
   function sliderAnimation() {
@@ -471,7 +471,7 @@
             getHeadlines(data);
           })
           .catch(function(err) {
-            alert("Error ", err);
+            return "error";
           });
 
         fetch(flashNews)
@@ -491,7 +491,7 @@
             getTopNews(data);
           })
           .catch(function(err) {
-            alert("Error ", err);
+            return "error";
           });
       }
     }
