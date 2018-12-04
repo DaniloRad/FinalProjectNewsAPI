@@ -1,144 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Aref+Ruqaa" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/animation.css">
-    <link rel="stylesheet" href="styles/media.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather|Aref+Ruqaa"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/animation.css" />
+    <link rel="stylesheet" href="styles/media.css" />
+
     <title>News API</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="fb-root"></div>
-        <script src="src/fbFeed.js"></script>
+    <script src="src/fbFeed.js"></script>
 
     <div class="wrapper">
-        <header>
-                <div class="logo"><a href="index.html"><img src="images/NewsAPI.png" alt=""></a></div>
-    
-                <nav id="desktop">
-                    <a href="index.html">Home</a>
-                    <a href="list_folder/list.html">List</a>
-                    <a href="custom/index.custom.html">Publishers</a>
-                    <a href="about_us/about_us.html">About Us</a>
-                </nav>
-                
-                <div class="country">
-                    <span class="flag-icon flag-icon-us us"></span>
-                    <span class="flag-icon flag-icon-gb gb"></span>
-                    <span class="flag-icon flag-icon-it it"></span>
-                    <span class="flag-icon flag-icon-fr fr"></span>
-                    <span class="flag-icon flag-icon-de de"></span>
-                </div>
+      <header>
+        <div class="logo">
+          <a href="index.html"><img src="images/NewsAPI.png" alt=""/></a>
+        </div>
 
-                <div class="menu">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                      </div>
-        </header>
-
-        <nav class="mobile">
-                <a href="index.html">Home</a>
-                <a href="list_folder/list.html">List</a>
-                <a href="custom/index.custom.html">Publishers</a>
-                <a href="about_us/about_us.html">About Us</a>
+        <nav id="desktop">
+          <div class="home activeOn"><a href="index.html">Home</a></div>
+          <div class="dropdown">
+            <a href="/list_folder/list.html">List</a>
+            <div class="dropdown-items">
+              <a href="/sport_folder/sport.html" class="sport">Sport</a>
+              <a href="/tech_folder/tech.html" class="technology">Technology</a>
+              <a href="/science_folder/science.html" class="science">Science</a>
+            </div>
+          </div>
+          <div class="publisher">
+            <a href="custom/index.custom.html">Publishers</a>
+          </div>
+          <div class="about"><a href="about_us/about_us.html">About Us</a></div>
         </nav>
 
-        <div class="container">
-                    <div class="slider">
-                        <h2>Headlines</h2>
-                        <div class="displaySlider animated fadeIn">
-                                <div class="slider1">
-                                    <p class="headline1"></p>
-                                    <p class="textHeadline1"></p>
-                                </div>
-                                <div class="slider2">
-                                    <p class="headline2"></p>
-                                    <p class="textHeadline2"></p>
-                                </div>
-                                <div class="slider3">
-                                    <p class="headline3"></p>
-                                    <p class="textHeadline3"></p>
-                                </div>
-                                <div class="slider4">
-                                    <p class="headline4"></p>
-                                    <p class="textHeadline4"></p>
-                                </div>
-                                <div class="slider5">
-                                    <p class="headline5"></p>
-                                    <p class="textHeadline5"></p>
-                                </div>
-                                <div class="slider6">
-                                    <p class="headline6"></p>
-                                    <p class="textHeadline6"></p>
-                                </div>
-                        </div>
-
-                        <div class="arrows"><span><i class="fas fa-angle-left"></i></span>
-                            <span><i class="fas fa-angle-right"></i></span></div>
-                        
-                    </div>
-
-                    <div class="topRated">
-                        <h2>Top Rated News</h2>
-                        <div class="topRatedContainer">
-                        </div>
-
-                        <div class="loadMore"><button class="btn-loadMore">Load more</button></div>
-                    </div>
-        
-                    <div class="best">
-                        <div class="bestContainer">
-                            <h3>Flash News</h3>
-                            <div class="flash flash1"></div>
-                            <div class="flash flash2"></div>
-                            <div class="flash flash3"></div>
-                        </div>
-                    </div>
-        
-                    <div class="fbFeed"><div class="fb-page" data-href="https://www.facebook.com/News-API-304981020350346/" 
-                        data-width="228" data-small-header="false" data-adapt-container-width="false" 
-                        data-hide-cover="false" data-show-facepile="false"><blockquote 
-                        cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-                        <a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
-                        </div>
+        <div class="country">
+          <span class="flag-icon flag-icon-us us"></span>
+          <span class="flag-icon flag-icon-gb gb"></span>
+          <span class="flag-icon flag-icon-it it"></span>
+          <span class="flag-icon flag-icon-fr fr"></span>
+          <span class="flag-icon flag-icon-de de"></span>
         </div>
 
-        <footer>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="about_us/about_us.html">About Us</a>
-                    <a href="custom/index.custom.html">Publishers</a>
-                    <a href="#">Contact Us</a>
-                </nav>
-            </footer>
-
+        <div class="menu">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
+      </header>
 
-        <div id="in" class="modal modal-in">
-            <modal-content><span class="close cursor">&times;</span>
-                <div class="modalContainer">
-                        <div class="modalTitle"></div>
-                        <div class="modalImage">
-                            <img class="modalImg" src="images/NewsAPI.png" alt="photos" width="600" height="300">
-                            <span class="modalAuthor"><span class="modalDate"></span></span>
-                        </div>
-                        <div class="modalContent">
-                        </div>
-                        <div class="modalLink">
-                           <a href="" target="_blank">Click Here for More</a> 
-                        </div>
-                </div></modal-content>
+      <nav class="mobile">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="/list_folder/list.html">List</a>
+          <div class="dropdown-items">
+            <a href="/sport_folder/sport.html" class="sport">Sport</a>
+            <a href="/tech_folder/tech.html" class="technology">Technology</a>
+            <a href="/science_folder/science.html" class="science">Science</a>
+          </div>
+        </div>
+        <a href="custom/index.custom.html">Publishers</a>
+        <a href="about_us/about_us.html">About Us</a>
+      </nav>
+
+      <div class="container">
+        <div class="slider">
+          <h2>Headlines</h2>
+          <div class="displaySlider animated fadeIn">
+            <div class="slider1">
+              <p class="headline1"></p>
+              <p class="textHeadline1"></p>
             </div>
+            <div class="slider2">
+              <p class="headline2"></p>
+              <p class="textHeadline2"></p>
+            </div>
+            <div class="slider3">
+              <p class="headline3"></p>
+              <p class="textHeadline3"></p>
+            </div>
+            <div class="slider4">
+              <p class="headline4"></p>
+              <p class="textHeadline4"></p>
+            </div>
+            <div class="slider5">
+              <p class="headline5"></p>
+              <p class="textHeadline5"></p>
+            </div>
+            <div class="slider6">
+              <p class="headline6"></p>
+              <p class="textHeadline6"></p>
+            </div>
+          </div>
+
+          <div class="arrows">
+            <span><i class="fas fa-angle-left"></i></span>
+            <span><i class="fas fa-angle-right"></i></span>
+          </div>
+        </div>
+
+        <div class="topRated">
+          <h2>Top Rated News</h2>
+          <div class="topRatedContainer"></div>
+
+          <div class="loadMore">
+            <button class="btn-loadMore">Load more</button>
+          </div>
+        </div>
+
+        <div class="best">
+          <div class="bestContainer">
+            <h3>Flash News</h3>
+            <div class="flash flash1"></div>
+            <div class="flash flash2"></div>
+            <div class="flash flash3"></div>
+          </div>
+        </div>
+
+        <div class="fbFeed">
+          <div
+            class="fb-page"
+            data-href="https://www.facebook.com/News-API-304981020350346/"
+            data-width="228"
+            data-small-header="false"
+            data-adapt-container-width="false"
+            data-hide-cover="false"
+            data-show-facepile="false"
+          >
+            <blockquote
+              cite="https://www.facebook.com/facebook"
+              class="fb-xfbml-parse-ignore"
+            >
+              <a href="https://www.facebook.com/facebook">Facebook</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about_us/about_us.html">About Us</a>
+          <a href="custom/index.custom.html">Publishers</a>
+          <a href="#">Contact Us</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div id="in" class="modal modal-in">
+      <modal-content
+        ><span class="close cursor">&times;</span>
+        <div class="modalContainer">
+          <div class="modalTitle"></div>
+          <div class="modalImage">
+            <img
+              class="modalImg"
+              src="images/NewsAPI.png"
+              alt="photos"
+              width="600"
+              height="300"
+            />
+            <span class="modalAuthor"><span class="modalDate"></span></span>
+          </div>
+          <div class="modalContent"></div>
+          <div class="modalLink">
+            <a href="" target="_blank">Click Here for More</a>
+          </div>
+        </div></modal-content
+      >
+    </div>
 
     <script src="src/script.js"></script>
-</body>
+  </body>
 </html>
