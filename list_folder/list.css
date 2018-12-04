@@ -53,6 +53,10 @@ header nav a , footer nav a{
     margin: 0 20px;
 }
 
+header nav a:hover , footer nav a:hover {
+    color: yellow;
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -72,12 +76,10 @@ a{
 
 .dropdown:hover .dropdown-items {
     display: block;
-    
 }
 
 .dropdown-items a {
     color: white;
-    background: darkgray;
     padding: 10px 0;
     text-decoration: none;
     display: block;
@@ -507,8 +509,12 @@ a{
         width: 100%;
         margin-top: -17px;
         height: auto;
-        background: darkgray;
+        background: green;
         margin-bottom: -40px;
+    }
+
+    .mobile a:hover {
+        color: yellow;
     }
 
     .search-active {
