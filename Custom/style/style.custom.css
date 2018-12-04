@@ -112,7 +112,7 @@
     }
 
     .news-feed a:hover {
-      color: white;
+      color: green;
     }
 
     .news-date {
@@ -227,7 +227,7 @@ header{
   top: 0px;
   width: 80%;
   border-bottom: 1px solid darkblue;
-  background: darkgrey;
+  background: green;
   z-index: 1;
 }
 
@@ -236,7 +236,7 @@ footer{
   height: 30px;
   width: 100%;
   border-top: 1px solid white;
-  background: darkgray;
+  background: green;
   margin-top: 10px;
   border-top: 1px solid darkblue;
 }
@@ -245,8 +245,17 @@ footer a {
   text-decoration: none;
 }
 
+footer a:hover {
+  color: yellow;
+}
+
 header img{
   width: 60px;
+}
+
+.activeOn {
+  background: #042a63;
+  border-radius: 5px;
 }
 
 .logo {
@@ -286,8 +295,13 @@ header nav, footer nav {
 }
 
 header nav a , footer nav a{
+  font-size: 18px;
   color: white;
   margin: 0 20px;
+}
+
+header nav a:hover {
+  color: yellow;
 }
 
 .dropdown-items {
