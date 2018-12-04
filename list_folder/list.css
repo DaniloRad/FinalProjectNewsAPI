@@ -16,7 +16,7 @@ header{
     width: 80%;
     top: 0px;
     border-bottom: 1px solid darkblue;
-    background: darkgrey;
+    background: green;
 }
 
 footer{
@@ -25,7 +25,7 @@ footer{
     position: relative;
     width: 100%;
     border-top: 1px solid darkblue;
-    background: darkgray;
+    background: green;
 }
 
 header img{
@@ -58,12 +58,16 @@ a{
     text-decoration: none;
 }
 
+.activeOn {
+    border-radius: 5px;
+    background: #042a63;
+}
+
 .dropdown-items {
     display: none;
     position: absolute;
     min-width: 100px;
     z-index: 1;
-
 }
 
 .dropdown:hover .dropdown-items {
@@ -77,6 +81,7 @@ a{
     padding: 10px 0;
     text-decoration: none;
     display: block;
+    background: green;
     border-bottom: 1px solid darkblue;
 }
 
@@ -134,7 +139,7 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(187, 187, 187);
+    background-color: rgb(104, 231, 104);
 }
 
 .filters > div:first-child {
