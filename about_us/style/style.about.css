@@ -7,6 +7,20 @@ body {
   line-height: 1.5;
   text-align: center;
 }
+.mobile {
+  width: 100%;
+  height: auto;
+  background: green !important;
+  margin-bottom: -40px;
+  position: fixed;
+  margin-top: 43px;
+}
+.mobile a {
+  text-decoration: none;
+}
+.mobile a:hover {
+  color: yellow;
+}
 
 img {
   display: block;
@@ -26,11 +40,26 @@ p {
   padding: 1em 0;
   font-size: 1.2em;
 }
+.dropdown:hover {
+    
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dropdown:hover .dropdown-items {
+  margin-top: 19px;
+}
+
+.dropdown-items a {
+background: green;
+  padding: 1px;
+}
 
 .btn {
   display: inline-block;
-  background: #333;
-  color: #fff;
+  background: green;
+  color: white;
   text-decoration: none;
   padding: 1em 2em;
   border: 1px solid #666;
@@ -38,7 +67,7 @@ p {
 }
 
 .btn:hover {
-  background: #eaeaea;
+  background: grey;
   color: #333;
 }
 
@@ -120,7 +149,7 @@ p {
 }
 
 #section-e .box:first-child {
-  background: #2690d4;
+  background: green;
 }
 
 /* Media queries*/
@@ -151,7 +180,7 @@ p {
   }
 
   .box-color {
-    background: #2690d4;
+    background: green;
   }
   #img1 {
     padding-bottom: 5em;
@@ -170,6 +199,40 @@ p {
     grid-gap: 5%;
     margin-left: 7.5%;
     margin-right: 7.5%;
+  }
+  .dropdown-items {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-items {
+    display: block;
+  }
+
+  .dropdown-items a {
+    color: white;
+    background: green;
+    padding-top:  100px;
+    text-decoration: none;
+    display: block;
+    
+    border-bottom: 1px solid darkblue;
+  }
+
+  .dropdown:hover .dropdown-items a {
+    animation: dropdown-anim 1s forwards;
+    display: block;
+  }
+
+  @keyframes dropdown-anim {
+    0% {
+      transform: translateX(20px) rotate(-30deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0);
+    }
   }
   .content-title {
     padding-top: 3.5em;
@@ -216,7 +279,7 @@ header {
   top: 0px;
   width: 100%;
   border-bottom: 1px solid darkblue;
-  background: darkgrey;
+  background: green;
   z-index: 1;
 }
 
@@ -225,16 +288,22 @@ footer {
   height: 30px;
   width: 100%;
   border-top: 1px solid darkblue;
-  background: darkgray;
+  background: green;
   margin-top: 10px;
 }
-
+.activeOn {
+  background: #042a63;
+  border-radius: 5px;
+}
 footer a {
   text-decoration: none;
 }
 
 header img {
   width: 60px;
+}
+header nav a:hover {
+  color: yellow;
 }
 
 .logo {
@@ -276,10 +345,13 @@ footer nav {
 
 header nav a,
 footer nav a {
+  font-size: 18px;
   color: white;
   margin: 0 20px;
 }
-
+footer a:hover {
+  color: yellow;
+}
 .dropdown-items {
   display: none;
   position: absolute;
@@ -293,7 +365,7 @@ footer nav a {
 
 .dropdown-items a {
   color: white;
-  background: #333;
+  background: green !important;
   padding: 10px 0;
   text-decoration: none;
   display: block;
@@ -324,7 +396,7 @@ body {
   .mobile {
     margin-top: 43px;
     height: auto;
-    background: darkgray;
+    background: green;
     margin-bottom: -40px;
   }
 
@@ -336,7 +408,7 @@ body {
     color: white;
     text-align: center;
     display: block;
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px blue;
   }
 
   .menu {
