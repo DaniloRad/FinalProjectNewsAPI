@@ -19,7 +19,7 @@
         return response.json();
     }
 
-    const general = "https://newsapi.org/v2/everything?q=general&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
+    const sport = "https://newsapi.org/v2/everything?q=sport&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
 
     let getWhole = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
     let getNewsArr = [];
@@ -27,7 +27,7 @@
     let tempData = [];
     let filterWholeArr = [];
     let pageCounter = 1;
-    let checkUrl = "general";
+    let checkUrl = "sport";
     let imgCounter = 1;
 
     function fillNewsArr(data, br, i, counter) {
@@ -158,6 +158,14 @@
             }
             $class("img" + (br + 1))[0].innerHTML = "";
             $class("info" + (br + 1))[0].innerHTML = "";
+            if (filterWholeArr[pageCounter - 1][br] === undefined) {
+                let tempBr = br;
+                if (tempBr === 1) { tempBr = 3 }
+                else if (tempBr === 2) { tempBr = 1 }
+                else if (tempBr === 3) { tempBr = 4 }
+                else if (tempBr === 4) { tempBr = 2 }
+                $class("info")[tempBr].style.height = "0";
+            }
             if (filterWholeArr[pageCounter - 1][br] !== undefined) {
                 $class("img" + (br + 1))[0].insertAdjacentHTML("afterbegin", `<img src="${filterWholeArr[pageCounter - 1][br].img}" alt="News${br}" "class="img img${filterWholeArr[pageCounter - 1][br].id}">`);
                 $class("info" + (br + 1))[0].insertAdjacentHTML("afterbegin", `<p>Title: "${filterWholeArr[pageCounter - 1][br].title}"</p> <br> <p>Author: "${filterWholeArr[pageCounter - 1][br].author}"</p> <br> <p>Date: "${filterWholeArr[pageCounter - 1][br].date}"</p> <br> <p>Rate: "${filterWholeArr[pageCounter - 1][br].rate}"</p>`);
@@ -182,7 +190,7 @@
 
     function firstFetch() {
         pageCounter = 1;
-        fetchIt(general, pageCounter);
+        fetchIt(sport, pageCounter);
         $class("prev")[0].style.visibility = "";
         $class("next")[0].style.visibility = "";
     }
@@ -216,8 +224,8 @@
 
     $class("pages-inner")[0].addEventListener("click", function () {
         pages();
-        if (checkUrl === "general") {
-            fetchIt(general, pageCounter)
+        if (checkUrl === "sport") {
+            fetchIt(sport, pageCounter)
         } else {
             setFilterArr();
         }

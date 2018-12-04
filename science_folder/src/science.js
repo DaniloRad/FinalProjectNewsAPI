@@ -19,7 +19,7 @@
         return response.json();
     }
 
-    const general = "https://newsapi.org/v2/everything?q=general&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
+    const science = "https://newsapi.org/v2/everything?q=science&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
 
     let getWhole = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
     let getNewsArr = [];
@@ -27,7 +27,7 @@
     let tempData = [];
     let filterWholeArr = [];
     let pageCounter = 1;
-    let checkUrl = "general";
+    let checkUrl = "science";
     let imgCounter = 1;
 
     function fillNewsArr(data, br, i, counter) {
@@ -182,7 +182,7 @@
 
     function firstFetch() {
         pageCounter = 1;
-        fetchIt(general, pageCounter);
+        fetchIt(science, pageCounter);
         $class("prev")[0].style.visibility = "";
         $class("next")[0].style.visibility = "";
     }
@@ -216,8 +216,8 @@
 
     $class("pages-inner")[0].addEventListener("click", function () {
         pages();
-        if (checkUrl === "general") {
-            fetchIt(general, pageCounter)
+        if (checkUrl === "science") {
+            fetchIt(science, pageCounter)
         } else {
             setFilterArr();
         }

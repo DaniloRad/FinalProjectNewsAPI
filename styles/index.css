@@ -1,384 +1,428 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0 auto;
-    font-family: "Open Sans", "Arial", sans-serif;
-    font-size: 16px;
-    width: 80%;
+  margin: 0 auto;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 16px;
+  width: 80%;
 }
 
-.wrapper{
-    background: lightgray;
+.wrapper {
+  background: aliceblue;
 }
 
-header{
-    display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    padding-bottom: 2px;
-    position: fixed;
-    top: 0px;
-    width: 80%;
-    border-bottom: 1px solid darkblue;
-    background: darkgrey;
-    z-index: 1;
+header {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  padding-bottom: 2px;
+  position: fixed;
+  top: 0px;
+  width: 80%;
+  border-bottom: 1px solid darkblue;
+  background: green;
+  z-index: 1;
 }
 
-footer{
-    display: grid;
-    height: 30px;
-    position: relative;
-    bottom: 0px;
-    width: 100%;
-    border-top: 1px solid darkblue;
-    background: darkgray;
+footer {
+  display: grid;
+  height: 30px;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid darkblue;
+  background: green;
 }
 
-header img{
-    width: 60px;
+header img {
+  width: 60px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo img{
-    height: 40px;
-    width: 60px;
+.logo img {
+  height: 40px;
+  width: 60px;
 }
 
 .country {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .country span {
-    margin-right: 3px;
-    cursor: pointer;
+  margin-right: 4px;
+  cursor: pointer;
 }
 
-a{
-    color: white;
-    text-decoration: none;
+a {
+  color: white;
+  text-decoration: none;
 }
 
 .mobile {
-    display: none;
+  display: none;
 }
 
-header nav, footer nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header nav,
+footer nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header nav a , footer nav a{
-    color: white;
-    margin: 0 20px;
+header nav a,
+footer nav a {
+  font-size: 18px;
+  color: whitesmoke;
+  margin: 0 20px;
+}
+
+header a:hover, footer a:hover {
+  color: yellow;
+}
+
+.activeOn {
+  background: #042a63;
+  border-radius: 5px;
+}
+
+.dropdown-items {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-items {
+  display: block;
+}
+
+.dropdown-items a {
+  color: white;
+  background: green;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid darkblue;
+}
+
+.dropdown:hover .dropdown-items a {
+  animation: dropdown-anim 1s forwards;
+  display: block;
+}
+
+@keyframes dropdown-anim {
+  0% {
+    transform: translateX(20px) rotate(-30deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
 }
 
 .container {
-    display: grid;
-    width: 100%;
-    grid-gap: 10px;
-    grid-template-areas:
+  display: grid;
+  width: 100%;
+  grid-gap: 10px;
+  grid-template-areas:
     "slider slider slider best"
     "slider slider slider best"
     "slider slider slider fbFeed"
     "topRated topRated topRated fbFeed"
     "topRated topRated topRated fbFeed"
     "topRated topRated topRated fbFeed";
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .slider {
-    grid-area: slider;
-    height: 350px;
-    background: gainsboro;
-    word-wrap: break-word;
+  grid-area: slider;
+  height: 350px;
+  word-wrap: break-word;
 }
 
 .displaySlider {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 10px;
-    
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
-.displaySlider div{
-    height: 250px;
-    width: 30%;
-    color: darkblue;
-    border-radius: 8px;
+.displaySlider div {
+  height: 250px;
+  width: 30%;
+  color: darkblue;
+  border-radius: 8px;
+  border: 1px solid darkblue;
 }
 
-.displaySlider div:hover{
-    box-shadow: 0 0 2px 5px rgba(0, 140, 186, 0.5);
+.displaySlider div:hover {
+  box-shadow: 0 0 2px 5px rgba(3, 13, 104, 0.9);
 }
 
-[class^=slider] {
-    background-size: 100% 100%;
-    position: relative;
+[class^="slider"] {
+  background-size: 100% 100%;
+  position: relative;
 }
 
 .best {
-    background: gainsboro;
-    grid-area: best;
-    height: auto;
-    word-wrap: break-word;
+  grid-area: best;
+  height: auto;
+  word-wrap: break-word;
 }
 
 .topRated {
-    grid-area: topRated;
-    height: auto;
-    background: gainsboro;
-    margin-bottom: 20px;
+  grid-area: topRated;
+  height: auto;
+
+  margin-bottom: 20px;
 }
 
 .fbFeed {
-    grid-area: fbFeed;
+  grid-area: fbFeed;
 }
 
-.container a:hover{
-    cursor: pointer;
-    color: blue;
+.container a:hover {
+  cursor: pointer;
+  color: blue;
 }
 
 .bestContainer img {
-    width: 50%;
-    height: 60px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 3px;
-    float: left;
-    cursor: pointer;
-    border-radius: 2px;
+  width: 50%;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 3px;
+  float: left;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .bestContainer img:hover {
-    box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 2px rgba(3, 13, 104, 0.9);
 }
 
 .bestContainer {
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
-    width: 100%;
-    max-width: 230px;
-    font-size: 0.7em;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  width: 100%;
+  max-width: 230px;
+  font-size: 0.7em;
 }
 
-h2{
-    font-family: 'Aref Ruqaa', serif;
-    margin-left: 5px;
-    margin-top: 0;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-decoration: underline;
+h2 {
+  font-family: "Aref Ruqaa", serif;
+  margin-left: 5px;
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: underline;
 }
 
-h3{
-    font-family: 'Aref Ruqaa', serif;
-    margin-left: 5px;
-    margin-top: 0;
-    text-decoration: underline;
-    letter-spacing: 2px;
+h3 {
+  font-family: "Aref Ruqaa", serif;
+  margin-left: 5px;
+  margin-top: 0;
+  text-decoration: underline;
+  letter-spacing: 2px;
 }
 
-i{
-    display: inline-block;
-    font-size: 2.2em;
-    margin: 0 20px;
-    cursor: pointer;
+i {
+  display: inline-block;
+  font-size: 2.2em;
+  margin: 0 20px;
+  cursor: pointer;
 }
 
 .slider .arrows {
-    text-align: center;
+  text-align: center;
 }
 
 .topRatedContainer img {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border: 1px solid darkblue;
-    border-radius: 8px;
-    padding: 3px;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid darkblue;
+  border-radius: 8px;
+  padding: 3px;
 }
 
 .topRatedContainer img:hover {
-    box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 3px rgba(3, 13, 104, 0.9);
 }
 
 .topRatedContainer {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    margin-left: 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-left: 10px;
 }
 
-[class^=cellp] p {
-    font-family: 'Merriweather', serif;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top:-1px;
-    font-size: 0.625em;
+[class^="cellp"] p {
+  font-family: "Merriweather", serif;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: -1px;
+  font-size: 0.625em;
 }
 
 .loadMore {
-    text-align: center;
+  text-align: center;
 }
 
-.loadMore button{
-    font-size: 0.625em;
-    background: #042a63;
-    border-radius: 3px;
-    color: white;
-    padding: 5px 10px;
-    transition: all 0.25s ease-out;
-    cursor: pointer;
+.loadMore button {
+  font-size: 0.625em;
+  background: green;
+  border-radius: 3px;
+  color: white;
+  padding: 5px 10px;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
 }
 
-p[class^="headline"]{
-    font-family: 'Merriweather', serif;
-    font-weight: 600;
-    font-size: 1em;
-    color: whitesmoke;
-    position: absolute;
-    bottom: 0;
-    left: 5px;
+p[class^="headline"] {
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+  font-size: 1em;
+  color: whitesmoke;
+  position: absolute;
+  bottom: 0;
+  left: 5px;
 }
 
-p[class^="headline"] a{
-    color:yellow;
-    text-decoration: underline;
-    margin-left: 3px;
-    font-size: 0.750em;
+p[class^="headline"] a {
+  color: yellow;
+  text-decoration: underline;
+  margin-left: 3px;
+  font-size: 0.75em;
 }
 
-.displaySlider [class^=slider] p[class^="text"] {
-    margin-left: 4px;
-    font-size: 0.750em;
-    color: yellow;
-    font-weight: bold;
+.displaySlider [class^="slider"] p[class^="text"] {
+  margin-left: 4px;
+  font-size: 0.75em;
+  color: yellow;
+  font-weight: bold;
 }
 
-[class^=flash] {
-    font-family: 'Merriweather', serif;
-    font-size: 0.8em;
-    cursor: pointer;
+[class^="flash"] {
+  font-family: "Merriweather", serif;
+  font-size: 0.8em;
+  cursor: pointer;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 5vw;
-    top: 5vh;
-    bottom: 5vh;
-    right: 5vw;
-    background-color: #2690d4;
-    color: whitesmoke;
-    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.2);
-    overflow: auto;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 5vw;
+  top: 5vh;
+  bottom: 5vh;
+  right: 5vw;
+  background-color: #003e1f;
+  color: white;
+  border-radius: 10px;
+  overflow: auto;
 }
 
 .close {
-    color: white;
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    font-size: 1.563em;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.563em;
+  font-weight: bold;
 }
 
-.modal-open{
-    overflow: hidden;
+.close:hover,
+.close:focus {
+  color: yellow;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 .modalTitle {
-    color: white;
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: 'Aref Ruqaa', serif;
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Aref Ruqaa", serif;
 }
 
 .modalContainer {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
 }
 
 .modalImage {
-    text-align: center;
+  text-align: center;
 }
 
 .modalImg {
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    max-height: 350px;
-    border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  max-height: 350px;
+  border-radius: 5px;
 }
 
-.modalAuthor,.modalDate {
-    font-size: 0.8em;
-    display: block;
-    text-align: center;
-    font-family: 'Merriweather', serif;
+.modalAuthor,
+.modalDate {
+  font-size: 0.8em;
+  display: block;
+  text-align: center;
+  font-family: "Merriweather", serif;
 }
 
 .modalContent {
-    font-size: 0.9em;
-    text-align: center;
-    margin-top: 20px;
-    font-family: 'Merriweather', serif;
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Merriweather", serif;
 }
 
 .modalLink {
-    margin-top: 10px;
-    text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.modalLink a{
-    color: yellow;
+.modalLink a {
+  color: yellow;
 }
 
-.modalLink a:hover{
-    color: yellow;
-    text-decoration: underline;
+.modalLink a:hover {
+  color: yellow;
+  text-decoration: underline;
 }
 
-.blocked{
-        position:relative;
+.blocked {
+  position: relative;
+  pointer-events: none;
 }
 
-.blocked:after{
-        content: '';
-        position: absolute;
-        left:0;
-        right:0;
-        top:0;
-        bottom:0;
-        z-index:1;
-        background: transparent;
+.blocked:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: transparent;
 }
-
