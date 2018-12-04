@@ -1,3 +1,4 @@
+(function() {
 function $class(cl) {
     return document.getElementsByClassName(cl);
 }
@@ -157,6 +158,14 @@ function setFilterArr() {
         }
         $class("img"+(br+1))[0].innerHTML = "";
         $class("info"+(br+1))[0].innerHTML = "";
+        if(filterWholeArr[pageCounter-1][br] === undefined) {
+            let tempBr = br;
+            if(tempBr === 1) {tempBr = 3}
+            else if(tempBr === 2) {tempBr = 1}
+            else if(tempBr === 3) {tempBr = 4}
+            else if(tempBr === 4) {tempBr = 2}
+            $class("info")[tempBr].style.height = "0";
+        }
         if(filterWholeArr[pageCounter-1][br] !== undefined) {
             $class("img"+(br+1))[0].insertAdjacentHTML("afterbegin", `<img src="${filterWholeArr[pageCounter-1][br].img}" alt="News${br}" "class="img img${filterWholeArr[pageCounter-1][br].id}">`);
             $class("info"+(br+1))[0].insertAdjacentHTML("afterbegin", `<p>Title: "${filterWholeArr[pageCounter-1][br].title}"</p> <br> <p>Author: "${filterWholeArr[pageCounter-1][br].author}"</p> <br> <p>Date: "${filterWholeArr[pageCounter-1][br].date}"</p> <br> <p>Rate: "${filterWholeArr[pageCounter-1][br].rate}"</p>`);
@@ -225,6 +234,7 @@ $class("pages-inner")[0].addEventListener("click", function() {
 $class("menu")[0].addEventListener("click", function(){
     $class("menu")[0].classList.toggle("change");
     $class("mobile")[0].classList.toggle("active");
+    $class("search")[0].classList.toggle("search-active");
 });
 
 $class("rates")[0].addEventListener("mouseup", filterByRate);
@@ -278,3 +288,4 @@ $(".close").addEventListener("click", function(){
 });
 
 firstFetch();
+})();

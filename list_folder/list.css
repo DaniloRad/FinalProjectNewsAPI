@@ -185,8 +185,12 @@ a{
     align-items: flex-start;
 }
 
+.column-one {
+    margin-right: 3%;
+}
+
 .column-two {
-    margin-left: 5%;
+    margin-left: 3%;
 }
 
 .pages {
@@ -241,7 +245,11 @@ a{
 
 @media screen and (max-width: 1200px) {
     .column-one {
-        margin-right: 10%;
+        margin-right: 5%;
+    }
+
+    .column-two {
+        margin-left: 5%;
     }
     
     .col > div {
@@ -257,7 +265,7 @@ a{
         justify-content: flex-start;
         align-items: flex-start;
         width: 300px;
-        height: 150px;
+        height: 180px;
     }
 }
 
@@ -462,18 +470,27 @@ a{
 
     .info {
         width: 250px;
-        height: 150px;
+        height: 180px;
     }
 }
 
 @media screen and (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+
     #desktop {
         display: none;
     }
 
     header {
+        width: 100%;
         display: grid;
         grid-template-columns: 4fr 1fr;
+    }
+
+    footer {
+        width: 100%;
     }
 
     .logo {
@@ -481,10 +498,30 @@ a{
     }
 
     .mobile {
-        margin-top: 43px;
+        position: fixed;
+        width: 100%;
+        margin-top: -17px;
         height: auto;
         background: darkgray;
         margin-bottom: -40px;
+    }
+
+    .search-active {
+        margin-top: 110px;
+    }
+
+    .dropdown:hover {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .dropdown:hover .dropdown-items {
+        margin-top: 23px;
+    }
+
+    .dropdown-items a {
+        padding: 0;
     }
 
     .active {
@@ -536,6 +573,10 @@ a{
         margin-right: 0;
     }
 
+    .column-two {
+        margin-left: 0;
+    }
+
     .main-content img {
         width: 300px;
         height: 200px;
@@ -543,6 +584,6 @@ a{
 
     .info {
         width: 300px;
-        height: 150px;
+        height: 180px;
     }
 }

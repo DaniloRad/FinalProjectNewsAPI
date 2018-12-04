@@ -1,3 +1,4 @@
+(function() {
 function $class(cl) {
     return document.getElementsByClassName(cl);
 }
@@ -226,6 +227,7 @@ $class("pages-inner")[0].addEventListener("click", function() {
 $class("menu")[0].addEventListener("click", function(){
     $class("menu")[0].classList.toggle("change");
     $class("mobile")[0].classList.toggle("active");
+    $class("search")[0].classList.toggle("search-active");
 });
 
 $class("rates")[0].addEventListener("mouseup", filterByRate);
@@ -279,3 +281,4 @@ $(".close").addEventListener("click", function(){
 });
 
 firstFetch();
+})();
