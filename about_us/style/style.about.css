@@ -24,6 +24,7 @@ h3 {
 p {
   margin: 0;
   padding: 1em 0;
+  font-size: 1.2em;
 }
 
 .btn {
@@ -43,7 +44,7 @@ p {
 
 /*bg-image */
 #showcase {
-  min-height: 450px;
+  min-height: 28.5em;
   color: #fff;
   text-align: center;
 }
@@ -55,7 +56,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 450px;
+  height: 28.5em;
   z-index: -1;
 }
 
@@ -74,7 +75,6 @@ p {
   background: #eaeaea;
   color: #333;
   padding-bottom: 2em;
-  
 }
 
 /* Section b*/
@@ -87,6 +87,14 @@ p {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.opacity0 {
+  opacity: 0;
+}
+
+/* solution for better-looking animations*/
+.opacity1 {
+  opacity: 1 !important;
 }
 .li {
   margin-bottom: 1em;
@@ -118,67 +126,89 @@ p {
 /* Media queries*/
 
 @media (min-width: 700px) {
-
-  .grid-box {  
+  .grid-box {
     display: grid;
     grid-template-columns: 47.5% 47.5%;
     grid-gap: 5%;
-    
+
     padding-top: 2em;
     padding-bottom: 2em;
     padding-left: 5em;
     padding-right: 5em;
-    
   }
-  
- .box-content-title{
-     padding-top: 1em;
- }
-  .content-title{
-      padding-top: 5em;
-      padding-bottom: 3em;
+
+  .box-content-title {
+    padding-top: 1em;
   }
-  .p-style{
-      text-align: center;
-      padding-left: 10em; 
-      padding-right: 10em;
+  .content-title {
+    padding-top: 5em;
+    padding-bottom: 3em;
   }
-  
+  .p-style {
+    text-align: center;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
+
   .box-color {
     background: #2690d4;
-
   }
-  #img1{
-      padding-bottom: 5em;
+  #img1 {
+    padding-bottom: 5em;
   }
-  
 }
-@media (min-width: 1024px){
-    .grid{
-        display: grid;
-        grid-template-columns: 41% 41%;
-        grid-gap: 5%;
-        margin-left: 7.5%;
-        margin-right: 7.5%;
-      }
-      .content-title{
-        padding-top: 3.5em;
-        padding-bottom: 1.5em;
-      }
-      .content-wrap-h1{
-        margin-left: 3em;
-        margin-right:3em;
-      }
-      .be-informed-style{
-        padding-top: 2em;
-    }
-    .img-be-informed{
-      padding-top: 2em;
-      padding-left: 3em;
-    }
+@media (max-width: 1024px) {
+  .opacity-boxes {
+    opacity: 1 !important;
+  }
 }
 
-header{
+@media (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 41% 41%;
+    grid-gap: 5%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+  }
+  .content-title {
+    padding-top: 3.5em;
+    padding-bottom: 1.5em;
+  }
+  .content-wrap-h1 {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+  .be-informed-style {
+    padding-top: 2em;
+  }
+  .img-be-informed {
+    padding-top: 2em;
+    padding-left: 3em;
+  }
+  #showcase {
+    min-height: 32em;
+  }
+  #showcase h1 {
+    padding-top: 3em;
+    font-size: 3.5em;
+  }
+  #showcase .bg-image {
+    height: 32em;
+  }
+  .img-be-informed {
+    padding-left: 5em;
+    margin-right: -20%;
+  }
+  #section-b1 {
+    padding-top: 2em;
+  }
+  .p-style {
+    font-style: 2em;
+  }
+}
+
+header {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
   padding-bottom: 2px;
@@ -190,7 +220,7 @@ header{
   z-index: 1;
 }
 
-footer{
+footer {
   display: grid;
   height: 30px;
   width: 100%;
@@ -203,7 +233,7 @@ footer a {
   text-decoration: none;
 }
 
-header img{
+header img {
   width: 60px;
 }
 
@@ -213,7 +243,7 @@ header img{
   justify-content: center;
 }
 
-.logo img{
+.logo img {
   height: 40px;
   width: 60px;
 }
@@ -229,7 +259,7 @@ header img{
   cursor: pointer;
 }
 
-header a{
+header a {
   text-decoration: none;
 }
 
@@ -237,13 +267,15 @@ header a{
   display: none;
 }
 
-header nav, footer nav {
+header nav,
+footer nav {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-header nav a , footer nav a{
+header nav a,
+footer nav a {
   color: white;
   margin: 0 20px;
 }
@@ -253,7 +285,6 @@ header nav a , footer nav a{
   position: absolute;
   min-width: 100px;
   z-index: 1;
-
 }
 
 .dropdown:hover .dropdown-items {
@@ -266,7 +297,6 @@ header nav a , footer nav a{
   padding: 10px 0;
   text-decoration: none;
   display: block;
-  
 }
 
 body {
@@ -277,61 +307,66 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-	#desktop, .country {
-        display: none;
-    }
+  #desktop,
+  .country {
+    display: none;
+  }
 
-    header {
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-    }
+  header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+  }
 
-    .logo {
-        justify-content: left;
-    }
-    
-    .mobile {
-        margin-top: 43px;
-        height: auto;
-        background: darkgray;
-        margin-bottom: -40px;
-    }
+  .logo {
+    justify-content: left;
+  }
 
-    .active {
-        display: block;
-    }
+  .mobile {
+    margin-top: 43px;
+    height: auto;
+    background: darkgray;
+    margin-bottom: -40px;
+  }
 
-    .mobile a {
-        color: white;
-        text-align: center;
-        display: block;
-        border-bottom: solid 1px white;
-    }
+  .active {
+    display: block;
+  }
 
-    .menu {
-        align-content: right;
-        justify-content: right;
-        cursor: pointer;
-        margin-left: 50%;
-    }
-    
-    .bar1, .bar2, .bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: darkblue;
-        margin: 6px 0;
-        transition: 0.4s;
-    }
-    
-    .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px);
-    }
-    
-    .change .bar2 {opacity: 0;}
-    
-    .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px);
-    }
+  .mobile a {
+    color: white;
+    text-align: center;
+    display: block;
+    border-bottom: solid 1px white;
+  }
+
+  .menu {
+    align-content: right;
+    justify-content: right;
+    cursor: pointer;
+    margin-left: 50%;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: darkblue;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
 }

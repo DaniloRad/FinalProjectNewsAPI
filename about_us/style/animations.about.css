@@ -1,5 +1,5 @@
 .fade-in {
-    animation: fadeIn 4s;
+    animation: fadeIn 2s;
   }
   @keyframes fadeIn {
   
@@ -15,7 +15,7 @@
   .img-animationRL{
     position: relative;
     animation-name: moveAnimRL;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
   
   }
   @keyframes moveAnimRL{
@@ -35,7 +35,7 @@
   .img-animationLR{
     position: relative;
     animation-name: moveAnimLR;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
   
   }
   @keyframes moveAnimLR{
