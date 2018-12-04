@@ -1,3 +1,3 @@
 # FinalProjectNewsAPI
 
-Surge link: newsAPI.surge.sh
+Surge link: https://newsapi.surge.sh/
