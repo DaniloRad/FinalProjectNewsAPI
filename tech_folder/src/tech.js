@@ -18,10 +18,7 @@ function getJSON(response) {
     return response.json();
 }
 
-const general = "https://newsapi.org/v2/everything?q=general&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
-const sport = "https://newsapi.org/v2/everything?q=sport&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
 const technology = "https://newsapi.org/v2/everything?q=technology&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
-const science = "https://newsapi.org/v2/everything?q=science&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
 
 let getWhole = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 let getNewsArr = [];
@@ -40,6 +37,8 @@ function fillNewsArr(data, br, i, counter) {
         author: data.articles[br+counter].author,
         content: data.articles[br+counter].content,
         date: data.articles[br+counter].publishedAt.split("T")[0],
+        link: data.articles[br+counter].url,
+        rate: Math.floor(Math.random()*10+1),
         id: imgCounter
     }
     imgCounter++;
@@ -53,7 +52,7 @@ function setDataInHtml(data, pageCounter) {
             $class("info"+(br+1))[0].innerHTML = "";
             fillNewsArr(data, br, i, counter);
             $class("img"+(br+1))[0].insertAdjacentHTML("afterbegin", `<img src="${getWhole[pageCounter-1][br].img}" alt="News${br}" class="img img${getWhole[pageCounter-1][br].id}">`);
-            $class("info"+(br+1))[0].insertAdjacentHTML("afterbegin", "<p>Title: "+getWhole[pageCounter-1][br].title+"</p> <br> <p>Author: "+getWhole[pageCounter-1][br].author+"</p> <br> <p>Date: "+getWhole[pageCounter-1][br].date+"</p>");
+            $class("info"+(br+1))[0].insertAdjacentHTML("afterbegin", `<p>Title: "${getWhole[pageCounter-1][br].title}"</p> <br> <p>Author: "${getWhole[pageCounter-1][br].author}"</p> <br> <p>Date: "${getWhole[pageCounter-1][br].date}"</p> <br> <p>Rate: "${getWhole[pageCounter-1][br].rate}"</p>`);        
         }
         counter += 5;
     }
@@ -115,6 +114,20 @@ function filter() {
     setFilterArr();
 }
 
+function filterByRate() {
+    tempData = [];
+    checkUrl = "rates";
+    let counter = 0;
+    for(let i = 0; i < filterArr.length; i++) {
+        if(Number(event.target.value) <= filterArr[i].rate) {
+            tempData[counter] = filterArr[i];
+            counter++;
+        }
+    }
+    tempToWhole();
+    setFilterArr();
+}
+
 function tempToWhole() {
     let counter =  0;
     filterWholeArr = [];
@@ -146,7 +159,7 @@ function setFilterArr() {
         $class("info"+(br+1))[0].innerHTML = "";
         if(filterWholeArr[pageCounter-1][br] !== undefined) {
             $class("img"+(br+1))[0].insertAdjacentHTML("afterbegin", `<img src="${filterWholeArr[pageCounter-1][br].img}" alt="News${br}" "class="img img${filterWholeArr[pageCounter-1][br].id}">`);
-            $class("info"+(br+1))[0].insertAdjacentHTML("afterbegin", "<p>Title: "+filterWholeArr[pageCounter-1][br].title+"</p> <br> <p>Author: "+filterWholeArr[pageCounter-1][br].author+"</p> <br> <p>Date: "+filterWholeArr[pageCounter-1][br].date+"</p>");
+            $class("info"+(br+1))[0].insertAdjacentHTML("afterbegin", `<p>Title: "${filterWholeArr[pageCounter-1][br].title}"</p> <br> <p>Author: "${filterWholeArr[pageCounter-1][br].author}"</p> <br> <p>Date: "${filterWholeArr[pageCounter-1][br].date}"</p> <br> <p>Rate: "${filterWholeArr[pageCounter-1][br].rate}"</p>`);
         }
     }
 }
@@ -213,6 +226,8 @@ $class("menu")[0].addEventListener("click", function(){
     $class("menu")[0].classList.toggle("change");
     $class("mobile")[0].classList.toggle("active");
 });
+
+$class("rates")[0].addEventListener("mouseup", filterByRate);
 
 $(".columns").addEventListener("click", function(event) {
     if(event.target.classList.contains("img")) {
