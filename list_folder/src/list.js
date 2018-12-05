@@ -1,4 +1,4 @@
-(function () {
+function main(decide) {
     function $class(cl) {
         return document.getElementsByClassName(cl);
     }
@@ -19,7 +19,7 @@
         return response.json();
     }
 
-    const general = "https://newsapi.org/v2/everything?q=general&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
+    const general = "https://newsapi.org/v2/everything?q="+decide+"&pagesize=100&apiKey=8720fdbbd7504665a4e56dfa042a5d4c";
 
     let getWhole = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
     let getNewsArr = [];
@@ -27,7 +27,7 @@
     let tempData = [];
     let filterWholeArr = [];
     let pageCounter = 1;
-    let checkUrl = "general";
+    let checkUrl = decide;
     let imgCounter = 1;
 
     function fillNewsArr(data, br, i, counter) {
@@ -216,7 +216,7 @@
 
     $class("pages-inner")[0].addEventListener("click", function () {
         pages();
-        if (checkUrl === "general") {
+        if (checkUrl === decide) {
             fetchIt(general, pageCounter)
         } else {
             setFilterArr();
@@ -279,4 +279,7 @@
     });
 
     firstFetch();
-})();
+};
+
+let decide=document.getElementsByTagName("body")[0].getAttribute("class");
+main(decide);
